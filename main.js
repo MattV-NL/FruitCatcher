@@ -11,8 +11,8 @@ const apple = {
 }
 
 function drawApple() {
+    ctx.fillStyle = 'red';
     ctx.fillRect(apple.x, apple.y, apple.size, apple.size);
-    ctx.fillStyle = apple.color;
 }
 
 drawApple();
