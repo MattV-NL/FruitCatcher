@@ -46,6 +46,15 @@ const badFruit = {
     dy: 1.5
 }
 
+const player = {
+    x: canvas.width / 2 - 60,
+    y: canvas.height - 80,
+    width: 120,
+    height: 80,
+    speed: 3,
+    dx: 0
+}
+
 //creating an array of fruits
 let fruit = [orange, apple, watermelon, pineapple, badFruit];
 
@@ -59,11 +68,36 @@ function drawFruit() {
     ctx.fillRect(fruit[randomFruit].x, fruit[randomFruit].y, fruit[randomFruit].size, fruit[randomFruit].size);
 }
 
+//draw player
+function drawPlayer() {
+    ctx.fillStyle = 'brown';
+    ctx.fillRect(player.x, player.y, player.width, player.height);
+}
+
+//apend the position to the movement speed
+function newPosition() {
+    player.x += player.dx;
+
+    detectWalls();
+}
+
+//detect walls so player wont go beyond boundary
+function detectWalls() {
+    if (player.x < 0) {
+        player.x = 0;
+    }
+    if (player.x + player.width > canvas.width) {
+        player.x = canvas.width - player.width;
+    }
+}
+
 //updating the canvas to allow for smooth animation
 function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawFruit();
-    
+    drawPlayer();
+    newPosition();
+
     //make the fruit drop
     fruit[randomFruit].y += fruit[randomFruit].dy;
 
@@ -80,8 +114,35 @@ function update() {
         nextRandomFruit = Math.floor(Math.random() * fruit.length);
         randomFruit = nextRandomFruit;
     }
-
     requestAnimationFrame(update);
 }
+
+function moveLeft() {
+    player.dx = -player.speed;
+}
+
+function moveRight() {
+    player.dx = player.speed;
+}
+
+function keyDown(e) {
+    if (e.key === 'ArrowRight' || e.key === 'Right') {
+        moveRight();
+    } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
+        moveLeft();
+    }
+}
+
+function keyUp(e) {
+    if (e.key === 'ArrowRight' ||
+        e.key === 'Right' ||
+        e.key === 'ArrowLeft' ||
+        e.key === 'Left') {
+            player.dx = 0;
+        }
+}
+
+document.addEventListener('keydown', keyDown);
+document.addEventListener('keyup', keyUp);
 
 update();
