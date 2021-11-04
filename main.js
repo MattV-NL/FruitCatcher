@@ -1,6 +1,5 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-
 //setting drop position for the fruit
 let randomDropPosition = Math.floor(Math.random() * canvas.width);
 let nextRandomDropPosition = 0;
@@ -91,14 +90,8 @@ function detectWalls() {
     }
 }
 
-//updating the canvas to allow for smooth animation
-function update() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawFruit();
-    drawPlayer();
-    newPosition();
-
-    //make the fruit drop
+//make fruit drop
+function drop() {
     fruit[randomFruit].y += fruit[randomFruit].dy;
 
     //when the fruit hits the floor then restart it at the top
@@ -114,9 +107,19 @@ function update() {
         nextRandomFruit = Math.floor(Math.random() * fruit.length);
         randomFruit = nextRandomFruit;
     }
+}
+
+//updating the canvas to allow for smooth animation
+function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawFruit();
+    drawPlayer();
+    newPosition();
+    drop();
     requestAnimationFrame(update);
 }
 
+//create functions for arrow key movement
 function moveLeft() {
     player.dx = -player.speed;
 }
@@ -142,6 +145,7 @@ function keyUp(e) {
         }
 }
 
+//Add event listeners to document to check for key presses on the arrow keys
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
 
