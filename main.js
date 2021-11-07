@@ -109,6 +109,15 @@ function drop() {
     }
 }
 
+//making fruit register when it hits the basket
+//will add scoring later
+
+function score() {
+    if(fruit[randomFruit].y === 80 && randomDropPosition > player.x) {
+        fruit[randomFruit].y = 0;
+    }
+}
+
 //updating the canvas to allow for smooth animation
 function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -116,6 +125,7 @@ function update() {
     drawPlayer();
     newPosition();
     drop();
+    score();
     requestAnimationFrame(update);
 }
 
