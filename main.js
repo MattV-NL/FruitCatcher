@@ -37,7 +37,7 @@ const pineapple = {
     dy: 1.6
 }
 
-const badFruit = {
+const bomb = {
     x: randomDropPosition,
     y: 0,
     size: 60,
@@ -55,7 +55,7 @@ const player = {
 }
 
 //creating an array of fruits
-let fruit = [orange, apple, watermelon, pineapple, badFruit];
+let fruit = [orange, apple, watermelon, pineapple, bomb];
 
 //picking random fruit from array
 let randomFruit = Math.floor(Math.random() * fruit.length);
