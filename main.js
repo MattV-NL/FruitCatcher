@@ -11,6 +11,9 @@ const watermelonImg = document.getElementById('watermelon');
 const pineappleImg = document.getElementById('pineapple');
 const bombImg = document.getElementById('bomb');
 
+//Add basket image
+const basketImg = document.getElementById('basket');
+
 //create fruits as basic squares and then will add styling later
 const apple = {
     x: randomDropPosition,
@@ -67,7 +70,8 @@ const player = {
     width: 120,
     height: 80,
     speed: 3,
-    dx: 0
+    dx: 0,
+    image: basketImg
 }
 
 //creating an array of fruits
@@ -84,8 +88,7 @@ function drawFruit() {
 
 //draw player
 function drawPlayer() {
-    ctx.fillStyle = 'brown';
-    ctx.fillRect(player.x, player.y, player.width, player.height);
+    ctx.drawImage(player.image, player.x, player.y, player.width, player.height);
 }
 
 //apend the position to the movement speed
