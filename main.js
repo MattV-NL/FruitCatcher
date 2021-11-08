@@ -113,7 +113,7 @@ function drop() {
 //will add scoring later
 
 function score() {
-    if(fruit[randomFruit].y === 80 && randomDropPosition > player.x) {
+    if(fruit[randomFruit].y = player.height && fruit[randomFruit].x >= player.x && fruit[randomFruit].x < player.x + player.width) {
         fruit[randomFruit].y = 0;
     }
 }
@@ -125,7 +125,7 @@ function update() {
     drawPlayer();
     newPosition();
     drop();
-    score();
+    //score();
     requestAnimationFrame(update);
 }
 
