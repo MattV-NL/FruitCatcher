@@ -4,45 +4,61 @@ const ctx = canvas.getContext('2d');
 let randomDropPosition = Math.floor(Math.random() * canvas.width);
 let nextRandomDropPosition = 0;
 
+//bring in images of fruits from DOM
+const appleImg = document.getElementById('apple');
+const orangeImg = document.getElementById('orange');
+const watermelonImg = document.getElementById('watermelon');
+const pineappleImg = document.getElementById('pineapple');
+const bombImg = document.getElementById('bomb');
+
 //create fruits as basic squares and then will add styling later
 const apple = {
     x: randomDropPosition,
     y: 0,
-    size: 30,
-    color: 'red',
-    dy: 1.5
+    width: 50,
+    height: 55,
+    dy: 1.5,
+    image: appleImg
 }
 
 const orange = {
     x: randomDropPosition,
     y: 0,
-    size: 35,
+    width: 50,
+    height: 55,
     color: 'orange',
-    dy: 1.5
+    dy: 1.5,
+    image: orangeImg
 }
 
 const watermelon = {
     x: randomDropPosition,
     y: 0,
-    size: 50,
+    width: 80,
+    height: 60,
     color: 'green',
-    dy: 1.2
+    dy: 1.2,
+    image: watermelonImg
 }
 
 const pineapple = {
     x: randomDropPosition,
     y: 0,
-    size: 50,
+    width: 70,
+    height: 80,
     color: 'yellow',
-    dy: 1.6
+    dy: 1.6,
+    image: pineappleImg
 }
 
 const bomb = {
     x: randomDropPosition,
     y: 0,
-    size: 60,
+    width: 80,
+    height: 80,
     color: 'black',
-    dy: 1.5
+    dy: 1.5,
+    image: bombImg
 }
 
 const player = {
@@ -63,8 +79,7 @@ let nextRandomFruit = 0;
 
 //drawing the fruit using information from the objects
 function drawFruit() {
-    ctx.fillStyle = fruit[randomFruit].color;
-    ctx.fillRect(fruit[randomFruit].x, fruit[randomFruit].y, fruit[randomFruit].size, fruit[randomFruit].size);
+    ctx.drawImage(fruit[randomFruit].image, fruit[randomFruit].x, fruit[randomFruit].y, fruit[randomFruit].width, fruit[randomFruit].height);
 }
 
 //draw player
@@ -95,7 +110,7 @@ function drop() {
     fruit[randomFruit].y += fruit[randomFruit].dy;
 
     //when the fruit hits the floor then restart it at the top
-    if (fruit[randomFruit].y + fruit[randomFruit].size > canvas.height) {
+    if (fruit[randomFruit].y - fruit[randomFruit].height > canvas.height) {
         fruit[randomFruit].y = 0;
         
         //make the fruit drop at a new place along the x axis

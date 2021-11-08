@@ -11,6 +11,26 @@ body {
 }
 
 #canvas {
-    background-color: lightgrey;
+    background-color: white;
     border-radius: 8px;
+}
+
+#apple {
+    display: none;
+}
+
+#orange {
+    display: none;
+}
+
+#watermelon {
+    display: none;
+}
+
+#pineapple {
+    display: none;
+}
+
+#bomb {
+    display: none;
 }
