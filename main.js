@@ -26,7 +26,8 @@ const apple = {
     width: 50,
     height: 55,
     dy: 1.5,
-    image: appleImg
+    image: appleImg,
+    fruitScore: 50
 }
 
 const orange = {
@@ -36,7 +37,8 @@ const orange = {
     height: 55,
     color: 'orange',
     dy: 1.5,
-    image: orangeImg
+    image: orangeImg,
+    fruitScore: 75
 }
 
 const watermelon = {
@@ -46,7 +48,8 @@ const watermelon = {
     height: 60,
     color: 'green',
     dy: 1.2,
-    image: watermelonImg
+    image: watermelonImg,
+    fruitScore: 100
 }
 
 const pineapple = {
@@ -56,7 +59,8 @@ const pineapple = {
     height: 80,
     color: 'yellow',
     dy: 1.6,
-    image: pineappleImg
+    image: pineappleImg,
+    fruitScore: 80
 }
 
 const bomb = {
@@ -66,7 +70,8 @@ const bomb = {
     height: 80,
     color: 'black',
     dy: 1.5,
-    image: bombImg
+    image: bombImg,
+    fruitScore: -100
 }
 
 const player = {
@@ -138,19 +143,8 @@ function drop() {
 function addScore() {
     if(fruit[randomFruit].y = player.height && fruit[randomFruit].x >= player.x && fruit[randomFruit].x < player.x + player.width) {
         fruit[randomFruit].y = 0;
-        if (randomFruit = 0) {
-            score += 50;
-            scoreDisplay.innerHTML = score;
-        } else if (randomFruit = 1) {
-            score += 75;
-            scoreDisplay.innerHTML = score;
-        } else if (randomFruit = 2) {
-            score += 100;
-            scoreDisplay.innerHTML = score;
-        } else if (randomFruit = 3) {
-            score += 125;
-            scoreDisplay.innerHTML = score;
-        }
+        score += fruit[randomFruit].fruitScore;
+        scoreDisplay.innerHTML = score;
     }
 }
 
