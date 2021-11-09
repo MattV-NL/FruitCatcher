@@ -1,5 +1,6 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+
 //setting drop position for the fruit
 let randomDropPosition = Math.floor(Math.random() * canvas.width);
 let nextRandomDropPosition = 0;
@@ -14,6 +15,7 @@ const bombImg = document.getElementById('bomb');
 //Add basket image
 const basketImg = document.getElementById('basket');
 
+//setting up score function
 let score = 0;
 const scoreDisplay = document.getElementById('score-display');
 
