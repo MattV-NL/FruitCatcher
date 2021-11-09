@@ -141,8 +141,9 @@ function drop() {
 //for some reason this stops the fruit from falling
 
 function addScore() {
-    if(fruit[randomFruit].y = player.height && fruit[randomFruit].x >= player.x && fruit[randomFruit].x < player.x + player.width) {
-        fruit[randomFruit].y = 0;
+    if(fruit[randomFruit].y = player.y && fruit[randomFruit].x >= player.x && fruit[randomFruit].x < player.x + player.width) {
+        //fruit[randomFruit].y = 0;
+        console.log("hello");
         score += fruit[randomFruit].fruitScore;
         scoreDisplay.innerHTML = score;
     }
