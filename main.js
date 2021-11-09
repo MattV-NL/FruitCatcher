@@ -14,6 +14,9 @@ const bombImg = document.getElementById('bomb');
 //Add basket image
 const basketImg = document.getElementById('basket');
 
+let score = 0;
+const scoreDisplay = document.getElementById('score-display');
+
 //create fruits as basic squares and then will add styling later
 const apple = {
     x: randomDropPosition,
@@ -128,11 +131,24 @@ function drop() {
 }
 
 //making fruit register when it hits the basket
-//will add scoring later
+//for some reason this stops the fruit from falling
 
-function score() {
+function addScore() {
     if(fruit[randomFruit].y = player.height && fruit[randomFruit].x >= player.x && fruit[randomFruit].x < player.x + player.width) {
         fruit[randomFruit].y = 0;
+        if (randomFruit = 0) {
+            score += 50;
+            scoreDisplay.innerHTML = score;
+        } else if (randomFruit = 1) {
+            score += 75;
+            scoreDisplay.innerHTML = score;
+        } else if (randomFruit = 2) {
+            score += 100;
+            scoreDisplay.innerHTML = score;
+        } else if (randomFruit = 3) {
+            score += 125;
+            scoreDisplay.innerHTML = score;
+        }
     }
 }
 
@@ -142,8 +158,8 @@ function update() {
     drawFruit();
     drawPlayer();
     newPosition();
+    addScore();
     drop();
-    //score();
     requestAnimationFrame(update);
 }
 
