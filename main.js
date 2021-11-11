@@ -163,6 +163,7 @@ function addScore() {
 
 //set up game over
 let isRunning = true
+
 function gameOver() {
     if (lives < 1) {
         ctx.font = '64px Arial';
@@ -213,4 +214,17 @@ function keyUp(e) {
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
 
-update();
+//set up start and reset buttons
+const startButton = document.getElementById('start-button');
+const resetButton = document.getElementById('reset-button');
+
+startButton.addEventListener('click', update);
+
+function resetGame() {
+    score = 0;
+    lives = 3;
+    isRunning = true;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+resetButton.addEventListener('click', resetGame);
