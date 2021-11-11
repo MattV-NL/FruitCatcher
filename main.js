@@ -146,9 +146,7 @@ function drop() {
     }
 }
 
-//making fruit register when it hits the basket
-//for some reason this stops the fruit from falling
-
+//making fruit register when it hits the basket and adding score and removing from lives
 function addScore() {
     if(fruit[randomFruit].x + fruit[randomFruit].width >= player.x && fruit[randomFruit].x < player.x + player.width && fruit[randomFruit].y + fruit[randomFruit].height > player.y) {
         console.log("hello");
@@ -164,7 +162,6 @@ function addScore() {
 }
 
 //set up game over
-
 let isRunning = true
 function gameOver() {
     if (lives < 1) {
