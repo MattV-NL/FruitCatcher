@@ -105,6 +105,8 @@ function drawPlayer() {
     ctx.drawImage(player.image, player.x, player.y, player.width, player.height);
 }
 
+drawPlayer();
+
 //apend the position to the movement speed
 function newPosition() {
     player.x += player.dx;
@@ -149,7 +151,6 @@ function drop() {
 //making fruit register when it hits the basket and adding score and removing from lives
 function addScore() {
     if(fruit[randomFruit].x + fruit[randomFruit].width >= player.x && fruit[randomFruit].x < player.x + player.width && fruit[randomFruit].y + fruit[randomFruit].height > player.y) {
-        console.log("hello");
         score += fruit[randomFruit].fruitScore;
         scoreDisplay.innerHTML = score;
         
@@ -162,7 +163,7 @@ function addScore() {
 }
 
 //set up game over
-let isRunning = true
+let isRunning = true;
 
 function gameOver() {
     if (lives < 1) {
@@ -181,7 +182,9 @@ function update() {
     addScore();
     drop();
     gameOver();
-    if (isRunning) requestAnimationFrame(update);
+    if (isRunning) {
+        requestAnimationFrame(update);
+    }
 }
 
 //create functions for arrow key movement
@@ -214,17 +217,37 @@ function keyUp(e) {
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
 
-//set up start and reset buttons
+//set up start, pause, and reset buttons
 const startButton = document.getElementById('start-button');
+const pauseButton = document.getElementById('pause-button');
 const resetButton = document.getElementById('reset-button');
 
 startButton.addEventListener('click', update);
 
+function pauseGame() {
+    ctx.font = '64px Arial';
+    ctx.fillText('PAUSE', 275, 400);
+
+    if (isRunning = true) {
+        isRunning = false;
+    } else if(isRunning = false) {
+        isRunning = true;
+    }
+}
+
+pauseButton.addEventListener('click', pauseGame);
+
 function resetGame() {
     score = 0;
+    scoreDisplay.innerHTML = score;
     lives = 3;
+    livesDisplay.innerHTML = lives;
     isRunning = true;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    newFruit();
+    player.x = canvas.width / 2 - 60;
+    player.y = canvas.height - 80;
+    drawPlayer();
 }
 
 resetButton.addEventListener('click', resetGame);
