@@ -15,9 +15,13 @@ const bombImg = document.getElementById('bomb');
 //Add basket image
 const basketImg = document.getElementById('basket');
 
-//setting up score function
+//setting up score for the game
 let score = 0;
 const scoreDisplay = document.getElementById('score-display');
+
+//setting up lives for the game
+let lives = 3;
+const livesDisplay = document.getElementById('lives-display');
 
 //create fruits as basic squares and then will add styling later
 const apple = {
@@ -118,22 +122,27 @@ function detectWalls() {
     }
 }
 
+//pick a new fruit from the array
+
+function newFruit() {
+    //new fruit start at top of the canvas
+    fruit[randomFruit].y = 0;
+    //new fruit drop at new place along x axis
+    nextRandomDropPosition = Math.floor(Math.random() * canvas.width);
+    randomDropPosition = nextRandomDropPosition;
+    fruit[randomFruit].x = nextRandomDropPosition;
+    //pick another fruit from array
+    nextRandomFruit = Math.floor(Math.random() * fruit.length);
+    randomFruit = nextRandomFruit;
+}
+
 //make fruit drop
 function drop() {
     fruit[randomFruit].y += fruit[randomFruit].dy;
 
     //when the fruit hits the floor then restart it at the top
     if (fruit[randomFruit].y - fruit[randomFruit].height > canvas.height) {
-        fruit[randomFruit].y = 0;
-        
-        //make the fruit drop at a new place along the x axis
-        nextRandomDropPosition = Math.floor(Math.random() * canvas.width);
-        randomDropPosition = nextRandomDropPosition;
-        fruit[randomFruit].x = nextRandomDropPosition;
-
-        //pick another new fruit from the array
-        nextRandomFruit = Math.floor(Math.random() * fruit.length);
-        randomFruit = nextRandomFruit;
+        newFruit();
     }
 }
 
@@ -141,11 +150,27 @@ function drop() {
 //for some reason this stops the fruit from falling
 
 function addScore() {
-    if(fruit[randomFruit].y = player.y && fruit[randomFruit].x >= player.x && fruit[randomFruit].x < player.x + player.width) {
-        //fruit[randomFruit].y = 0;
+    if(fruit[randomFruit].x + fruit[randomFruit].width >= player.x && fruit[randomFruit].x < player.x + player.width && fruit[randomFruit].y + fruit[randomFruit].height > player.y) {
         console.log("hello");
         score += fruit[randomFruit].fruitScore;
         scoreDisplay.innerHTML = score;
+        
+        newFruit();
+    } else if (fruit[randomFruit].y > canvas.height) {
+        newFruit();
+        lives -= 1;
+        livesDisplay.innerHTML = lives;
+    }
+}
+
+//set up game over
+
+let isRunning = true
+function gameOver() {
+    if (lives < 1) {
+        ctx.font = '64px Arial';
+        ctx.fillText('GAME OVER', 200, 400);
+        isRunning = false;
     }
 }
 
@@ -157,7 +182,8 @@ function update() {
     newPosition();
     addScore();
     drop();
-    requestAnimationFrame(update);
+    gameOver();
+    if (isRunning) requestAnimationFrame(update);
 }
 
 //create functions for arrow key movement
