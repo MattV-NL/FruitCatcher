@@ -174,9 +174,13 @@ function addScore() {
         newFruit();
 
     } else if (fruit[randomFruit].y > canvas.height) {
-        lives -= 1;
-        livesDisplay.innerHTML = lives;
-        newFruit();
+        if (fruit[randomFruit].isBomb === false) {
+            lives -= 1;
+            livesDisplay.innerHTML = lives;
+            newFruit();
+        } else {
+            newFruit();
+        }
     }
 }
 
