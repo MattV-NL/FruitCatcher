@@ -31,7 +31,8 @@ const apple = {
     height: 55,
     dy: 1.5,
     image: appleImg,
-    fruitScore: 50
+    fruitScore: 50,
+    isBomb: false
 }
 
 const orange = {
@@ -42,7 +43,8 @@ const orange = {
     color: 'orange',
     dy: 1.5,
     image: orangeImg,
-    fruitScore: 75
+    fruitScore: 75,
+    isBomb: false
 }
 
 const watermelon = {
@@ -51,9 +53,10 @@ const watermelon = {
     width: 80,
     height: 60,
     color: 'green',
-    dy: 1.2,
+    dy: 1.5,
     image: watermelonImg,
-    fruitScore: 100
+    fruitScore: 100,
+    isBomb: false
 }
 
 const pineapple = {
@@ -62,9 +65,10 @@ const pineapple = {
     width: 70,
     height: 80,
     color: 'yellow',
-    dy: 1.6,
+    dy: 1.5,
     image: pineappleImg,
-    fruitScore: 80
+    fruitScore: 80,
+    isBomb: false
 }
 
 const bomb = {
@@ -73,9 +77,10 @@ const bomb = {
     width: 80,
     height: 80,
     color: 'black',
-    dy: 1.5,
+    dy: 1.7,
     image: bombImg,
-    fruitScore: -100
+    fruitScore: -100,
+    isBomb: true
 }
 
 const player = {
@@ -127,6 +132,7 @@ function detectWalls() {
 //pick a new fruit from the array
 
 function newFruit() {
+    fruit[randomFruit].y += fruit[randomFruit].dy;
     //new fruit start at top of the canvas
     fruit[randomFruit].y = 0;
     //new fruit drop at new place along x axis
@@ -138,12 +144,20 @@ function newFruit() {
     randomFruit = nextRandomFruit;
 }
 
+//set up timer ID so that the interval can be set to drop fruit at
+timerId = null;
+
 //make fruit drop
 function drop() {
     fruit[randomFruit].y += fruit[randomFruit].dy;
+}
 
-    //when the fruit hits the floor then restart it at the top
-    if (fruit[randomFruit].y - fruit[randomFruit].height > canvas.height) {
+function fruitTimer() {
+    if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+    } else {
+        timerid = setInterval(drop, 1000);
         newFruit();
     }
 }
@@ -153,12 +167,16 @@ function addScore() {
     if(fruit[randomFruit].x + fruit[randomFruit].width >= player.x && fruit[randomFruit].x < player.x + player.width && fruit[randomFruit].y + fruit[randomFruit].height > player.y) {
         score += fruit[randomFruit].fruitScore;
         scoreDisplay.innerHTML = score;
-        
+        if (fruit[randomFruit].isBomb === true) {
+            lives -= 1;
+            livesDisplay.innerHTML = lives;
+        }
         newFruit();
+
     } else if (fruit[randomFruit].y > canvas.height) {
-        newFruit();
         lives -= 1;
         livesDisplay.innerHTML = lives;
+        newFruit();
     }
 }
 
@@ -179,8 +197,8 @@ function update() {
     drawFruit();
     drawPlayer();
     newPosition();
-    addScore();
     drop();
+    addScore();
     gameOver();
     if (isRunning) {
         requestAnimationFrame(update);
@@ -225,13 +243,16 @@ const resetButton = document.getElementById('reset-button');
 startButton.addEventListener('click', update);
 
 function pauseGame() {
-    ctx.font = '64px Arial';
-    ctx.fillText('PAUSE', 275, 400);
-
-    if (isRunning = true) {
+    if (isRunning) {
+        //won't display pause message, seems to be related to the ctx.clearRect in update
+        ctx.font = '64px Arial';
+        ctx.fillText('PAUSE', 275, 400);
+        pauseButton.innerHTML = 'RESUME';
         isRunning = false;
-    } else if(isRunning = false) {
+    } else {
         isRunning = true;
+        pauseButton.innerHTML = 'PAUSE';
+        update();
     }
 }
 
