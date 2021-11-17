@@ -278,6 +278,7 @@ function resetGame() {
     lives = 3;
     livesDisplay.innerHTML = lives;
     isRunning = true;
+    pauseButton.innerHTML = 'PAUSE';
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     newFruit();
     player.x = canvas.width / 2 - 60;

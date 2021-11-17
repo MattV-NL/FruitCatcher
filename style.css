@@ -38,3 +38,78 @@ body {
 #basket {
     display: none;
 }
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    font-size: 20px;
+}
+li {
+    font-size: 16px;
+    padding: 8px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.start-button {
+    margin-right: 25px;
+    padding: 16px;
+    background-color: green;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+}
+.pause-button {
+    background-color: blue;
+    padding: 16px;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+}
+.reset-button {
+    margin-left: 25px;
+    background-color: red;
+    padding: 16px;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+}
+.start-button:hover {
+    margin-right: 25px;
+    padding: 16px;
+    background-color: darkgreen;
+    color: white;
+    border: 1px white solid;
+    border-radius: 5px;
+}
+.pause-button:hover {
+    background-color: darkblue;
+    padding: 16px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.reset-button:hover {
+    margin-left: 25px;
+    background-color: darkred;
+    padding: 16px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.score {
+    float: left;
+    width: 50%;
+}

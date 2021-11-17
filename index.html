@@ -12,6 +12,15 @@
         <div class="title">
             <h1>Fruit Catcher Game</h1>
         </div>
+        <div class="controls">
+            <ul>How to play
+                <li>Left arrow moves basket Left</li>
+                <li>Right arrow moves basket Right</li>
+                <li>Catching a fruit earns the player points</li>
+                <li>Look out for the bombs! They cause the player to lose a life</li>
+                <li>Missing a fruit will make the player lose a life as well</li>
+            </ul>
+        </div>
         <div class="buttons">
             <button class="start-button" id="start-button">START</button>
             <button class="pause-button" id="pause-button">PAUSE</button>
@@ -20,11 +29,11 @@
         <div class="score" id="score">
             <h2>SCORE:<span class="score-display" id="score-display">0</span></h2>
         </div>
+        <div class="score">
+            <h2>LIVES:<span class="lives display" id="lives-display">3</span></h2>
+        </div>
         <div class="playarea">
             <canvas id="canvas" width="800" height="800"></canvas>
-        </div>
-        <div class="lives" id="lives">
-            <h2>LIVES:<span class="lives display" id="lives-display">3</span></h2>
         </div>
     </div>
 </body>
