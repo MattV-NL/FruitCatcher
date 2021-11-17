@@ -15,6 +15,12 @@ const bombImg = document.getElementById('bomb');
 //Add basket image
 const basketImg = document.getElementById('basket');
 
+//adding sounds to game
+const explosionSound = document.getElementById('explosion-sound');
+const gameoverSound = document.getElementById('gameover-sound');
+const scorePointSound = document.getElementById('score-points-sound');
+const missFruitSound = document.getElementById('miss-sound');
+
 //setting up score for the game
 let score = 0;
 const scoreDisplay = document.getElementById('score-display');
@@ -23,7 +29,7 @@ const scoreDisplay = document.getElementById('score-display');
 let lives = 3;
 const livesDisplay = document.getElementById('lives-display');
 
-//create fruits as basic squares and then will add styling later
+//create fruit objects
 const apple = {
     x: randomDropPosition,
     y: 0,
@@ -79,7 +85,7 @@ const bomb = {
     color: 'black',
     dy: 1.7,
     image: bombImg,
-    fruitScore: -100,
+    fruitScore: 0,
     isBomb: true
 }
 
@@ -170,14 +176,17 @@ function addScore() {
         if (fruit[randomFruit].isBomb === true) {
             lives -= 1;
             livesDisplay.innerHTML = lives;
+            explosionSound.play();
+        } else {
+            scorePointSound.play();
         }
         newFruit();
-
     } else if (fruit[randomFruit].y > canvas.height) {
         if (fruit[randomFruit].isBomb === false) {
             lives -= 1;
             livesDisplay.innerHTML = lives;
             newFruit();
+            missFruitSound.play();
         } else {
             newFruit();
         }
@@ -192,6 +201,7 @@ function gameOver() {
         ctx.font = '64px Arial';
         ctx.fillText('GAME OVER', 200, 400);
         isRunning = false;
+        gameoverSound.play();
     }
 }
 
