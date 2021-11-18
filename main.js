@@ -5,7 +5,7 @@ const ctx = canvas.getContext('2d');
 let randomDropPosition = Math.floor(Math.random() * canvas.width);
 let nextRandomDropPosition = 0;
 
-//bring in images of fruits from DOM
+//bring in images of fruits from document
 const appleImg = document.getElementById('apple');
 const orangeImg = document.getElementById('orange');
 const watermelonImg = document.getElementById('watermelon');
@@ -138,7 +138,6 @@ function detectWalls() {
 //pick a new fruit from the array
 
 function newFruit() {
-    fruit[randomFruit].y += fruit[randomFruit].dy;
     //new fruit start at top of the canvas
     fruit[randomFruit].y = 0;
     //new fruit drop at new place along x axis
@@ -150,22 +149,9 @@ function newFruit() {
     randomFruit = nextRandomFruit;
 }
 
-//set up timer ID so that the interval can be set to drop fruit at
-timerId = null;
-
 //make fruit drop
 function drop() {
     fruit[randomFruit].y += fruit[randomFruit].dy;
-}
-
-function fruitTimer() {
-    if (timerId) {
-        clearInterval(timerId);
-        timerId = null;
-    } else {
-        timerid = setInterval(drop, 1000);
-        newFruit();
-    }
 }
 
 //making fruit register when it hits the basket and adding score and removing from lives
@@ -287,3 +273,4 @@ function resetGame() {
 }
 
 resetButton.addEventListener('click', resetGame);
+
