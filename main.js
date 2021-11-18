@@ -172,7 +172,9 @@ function addScore() {
             lives -= 1;
             livesDisplay.innerHTML = lives;
             newFruit();
-            missFruitSound.play();
+            if (lives > 0) {
+                missFruitSound.play();
+            }
         } else {
             newFruit();
         }
