@@ -136,7 +136,6 @@ function detectWalls() {
 }
 
 //pick a new fruit from the array
-
 function newFruit() {
     //new fruit start at top of the canvas
     fruit[randomFruit].y = 0;
@@ -275,4 +274,3 @@ function resetGame() {
 }
 
 resetButton.addEventListener('click', resetGame);
-
