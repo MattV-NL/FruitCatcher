@@ -274,3 +274,16 @@ function resetGame() {
 }
 
 resetButton.addEventListener('click', resetGame);
+
+let timerId = null;
+let anotherFruit = null;
+
+function setTimer() {
+    if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+    } else {
+        fruit = anotherFruit;
+        
+    }
+}
