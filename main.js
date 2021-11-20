@@ -2,7 +2,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 //setting drop position for the fruit
-let randomDropPosition = Math.floor(Math.random() * canvas.width);
+let randomDropPosition = Math.floor(Math.random() * 720);
 let nextRandomDropPosition = 0;
 
 //bring in images of fruits from document
@@ -140,7 +140,7 @@ function newFruit() {
     //new fruit start at top of the canvas
     fruit[randomFruit].y = 0;
     //new fruit drop at new place along x axis
-    nextRandomDropPosition = Math.floor(Math.random() * canvas.width);
+    nextRandomDropPosition = Math.floor(Math.random() * canvas.width - fruit[randomFruit].width);
     randomDropPosition = nextRandomDropPosition;
     fruit[randomFruit].x = nextRandomDropPosition;
     //pick another fruit from array
