@@ -202,6 +202,8 @@ function update() {
     addScore();
     gameOver();
     requestAnimationFrame(update);
+    startButton.removeEventListener('click', update);
+    pauseButton.addEventListener('click', pauseGame);
     }
 }
 
@@ -254,7 +256,7 @@ function pauseGame() {
     }
 }
 
-pauseButton.addEventListener('click', pauseGame);
+//pauseButton.addEventListener('click', pauseGame);
 
 function resetGame() {
     score = 0;
@@ -268,6 +270,7 @@ function resetGame() {
     player.x = canvas.width / 2 - 60;
     player.y = canvas.height - 80;
     drawPlayer();
+    startButton.addEventListener('click', update);
 }
 
 resetButton.addEventListener('click', resetGame);
