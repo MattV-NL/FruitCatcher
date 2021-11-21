@@ -272,6 +272,7 @@ function resetGame() {
 
 resetButton.addEventListener('click', resetGame);
 
+//working on setting up fruit to drop on interval .. not functioning properly yet
 let timerId = null;
 let anotherFruit = null;
 
