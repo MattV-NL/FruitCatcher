@@ -5,15 +5,14 @@ const ctx = canvas.getContext('2d');
 let randomDropPosition = Math.floor(Math.random() * 720);
 let nextRandomDropPosition = 0;
 
-//bring in images of fruits from document
+//adding images for game
 const appleImg = document.getElementById('apple');
 const orangeImg = document.getElementById('orange');
 const watermelonImg = document.getElementById('watermelon');
 const pineappleImg = document.getElementById('pineapple');
 const bombImg = document.getElementById('bomb');
-
-//Add basket image
 const basketImg = document.getElementById('basket');
+const pauseImg = document.getElementById('pause-icon');
 
 //adding sounds to game
 const explosionSound = document.getElementById('explosion-sound');
@@ -194,6 +193,7 @@ function gameOver() {
 
 //updating the canvas to allow for smooth animation
 function update() {
+    if (isRunning) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawFruit();
     drawPlayer();
@@ -201,8 +201,7 @@ function update() {
     drop();
     addScore();
     gameOver();
-    if (isRunning) {
-        requestAnimationFrame(update);
+    requestAnimationFrame(update);
     }
 }
 
@@ -245,9 +244,7 @@ startButton.addEventListener('click', update);
 
 function pauseGame() {
     if (isRunning) {
-        //won't display pause message, seems to be related to the ctx.clearRect in update
-        ctx.font = '64px Arial';
-        ctx.fillText('PAUSE', 275, 400);
+        ctx.drawImage(pauseImg, 250, 250, 300, 300);
         pauseButton.innerHTML = 'RESUME';
         isRunning = false;
     } else {

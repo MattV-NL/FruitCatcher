@@ -43,6 +43,10 @@ body {
     display: none;
 }
 
+#pause-icon {
+    display: none;
+}
+
 .title {
     display: flex;
     justify-content: center;
