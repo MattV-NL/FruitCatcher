@@ -177,10 +177,6 @@ function addScore() {
             newFruit();
         }
     }
-    /*working on increasing difficulty
-    if (score == 50) {
-        fruit[randomFruit].dy = fruit[randomFruit].dy * 5;
-    }*/
 }
 
 //set up game over
@@ -276,10 +272,3 @@ function resetGame() {
 }
 
 resetButton.addEventListener('click', resetGame);
-
-//working on setting up fruit to drop on interval .. not functioning properly yet
-let timerId = null;
-
-function anotherFruit() {
-    
-}
