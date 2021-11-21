@@ -177,9 +177,10 @@ function addScore() {
             newFruit();
         }
     }
+    /*working on increasing difficulty
     if (score == 50) {
         fruit[randomFruit].dy = fruit[randomFruit].dy * 5;
-    }
+    }*/
 }
 
 //set up game over
@@ -280,5 +281,5 @@ resetButton.addEventListener('click', resetGame);
 let timerId = null;
 
 function anotherFruit() {
-
+    
 }
