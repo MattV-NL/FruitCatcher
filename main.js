@@ -34,7 +34,7 @@ const apple = {
     y: 0,
     width: 50,
     height: 55,
-    dy: 1.5,
+    dy: 1.8,
     image: appleImg,
     fruitScore: 50,
     isBomb: false
@@ -46,7 +46,7 @@ const orange = {
     width: 50,
     height: 55,
     color: 'orange',
-    dy: 1.5,
+    dy: 1.8,
     image: orangeImg,
     fruitScore: 75,
     isBomb: false
@@ -58,7 +58,7 @@ const watermelon = {
     width: 80,
     height: 60,
     color: 'green',
-    dy: 1.5,
+    dy: 1.8,
     image: watermelonImg,
     fruitScore: 100,
     isBomb: false
@@ -70,7 +70,7 @@ const pineapple = {
     width: 70,
     height: 80,
     color: 'yellow',
-    dy: 1.5,
+    dy: 1.8,
     image: pineappleImg,
     fruitScore: 80,
     isBomb: false
@@ -82,7 +82,7 @@ const bomb = {
     width: 80,
     height: 80,
     color: 'black',
-    dy: 1.7,
+    dy: 2,
     image: bombImg,
     fruitScore: 0,
     isBomb: true
@@ -93,7 +93,7 @@ const player = {
     y: canvas.height - 80,
     width: 120,
     height: 80,
-    speed: 3,
+    speed: 3.5,
     dx: 0,
     image: basketImg
 }
@@ -256,8 +256,6 @@ function pauseGame() {
     }
 }
 
-//pauseButton.addEventListener('click', pauseGame);
-
 function resetGame() {
     score = 0;
     scoreDisplay.innerHTML = score;
@@ -277,14 +275,7 @@ resetButton.addEventListener('click', resetGame);
 
 //working on setting up fruit to drop on interval .. not functioning properly yet
 let timerId = null;
-let anotherFruit = null;
 
-function setTimer() {
-    if (timerId) {
-        clearInterval(timerId);
-        timerId = null;
-    } else {
-        fruit = anotherFruit;
-        
-    }
+function anotherFruit() {
+
 }
