@@ -139,7 +139,7 @@ function newFruit() {
     //new fruit start at top of the canvas
     fruit[randomFruit].y = 0;
     //new fruit drop at new place along x axis
-    nextRandomDropPosition = Math.floor(Math.random() * canvas.width - fruit[randomFruit].width);
+    nextRandomDropPosition = Math.floor(Math.random() * (canvas.width - fruit[randomFruit].width));
     randomDropPosition = nextRandomDropPosition;
     fruit[randomFruit].x = nextRandomDropPosition;
     //pick another fruit from array
@@ -176,6 +176,9 @@ function addScore() {
         } else {
             newFruit();
         }
+    }
+    if (score == 50) {
+        fruit[randomFruit].dy = fruit[randomFruit].dy * 5;
     }
 }
 
