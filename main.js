@@ -114,7 +114,7 @@ function drawPlayer() {
 drawPlayer();
 
 //apend the position to the movement speed
-function newPosition() {
+function movePlayer() {
     player.x += player.dx;
 
     detectWalls();
@@ -193,7 +193,7 @@ function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawFruit();
     drawPlayer();
-    newPosition();
+    movePlayer();
     drop();
     addScore();
     gameOver();
