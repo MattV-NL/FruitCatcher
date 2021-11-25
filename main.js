@@ -258,7 +258,7 @@ function firstDrop() {
 }
 
 //add score to the scoreboard base on what is caught in the basket
-function newAddScore() {
+function addScore() {
     if (apple.x + apple.width >= player.x && apple.x < player.x + player.width && apple.y + apple.height > player.y) {
         score += apple.fruitScore;
         scorePointSound.play();
@@ -318,6 +318,9 @@ function gameOver() {
     if (lives < 1) {
         ctx.font = '64px Arial';
         ctx.fillText('GAME OVER', 200, 400);
+        ctx.font = "32px Arial";
+        ctx.fillText('Your Score was', 200, 450);
+        ctx.fillText(score, 450, 450);
         isRunning = false;
         gameoverSound.play();
     }
@@ -340,7 +343,7 @@ function update() {
     dropWatermelon();
     dropPineapple();
     dropBomb();
-    newAddScore();
+    addScore();
     missedFruit();
     gameOver();
     requestAnimationFrame(update);

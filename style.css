@@ -128,3 +128,27 @@ li {
     float: left;
     width: 50%;
 }
+
+#butterfly {
+    display: none;
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    right: 5%;
+}
+
+#bird {
+    display: none;
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    top: 5%;
+}
+
+#squirrel {
+    display: none;
+    height: 100px;
+    position: absolute;
+    bottom: 18%;
+    left: 5%;
+}
