@@ -14,7 +14,7 @@ function drawButterfly() {
 function removeButterfly() {
     removeAnimation = setInterval(() => {
         butterfly.style.display = 'none';
-    }, 14000);
+    }, 13000);
 }
 
 function drawBird() {
@@ -32,13 +32,13 @@ function removeBird() {
 function drawSquirrel() {
     animationTimer = setInterval(() => {
         squirrel.style.display = 'flex';
-    }, 5000);
+    }, 20000);
 }
 
 function removeSquirrel() {
     removeAnimation = setInterval(() => {
         squirrel.style.display = 'none';
-    }, 9000);
+    }, 24000);
 }
 
 drawButterfly();
