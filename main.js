@@ -1,19 +1,15 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-//setting drop position for the fruit
+//setting a drop position for each fruit so that they act indipendantly
 let randomDropPositionApple = Math.floor(Math.random() * 750);
 let nextRandomDropPositionApple = 0;
-
 let randomDropPositionOrange = Math.floor(Math.random() * 750);
 let nextRandomDropPositionOrange = 0;
-
 let randomDropPositionWatermelon = Math.floor(Math.random() * 750);
 let nextRandomDropPositionWatermelon = 0;
-
 let randomDropPositionPineapple = Math.floor(Math.random() * 750);
 let nextRandomDropPositionPineapple = 0;
-
 let randomDropPositionBomb = Math.floor(Math.random() * 750);
 let nextRandomDropPositionBomb = 0;
 
@@ -106,9 +102,7 @@ const player = {
     image: basketImg
 }
 
-//creating an array of fruits
-let fruit = [orange, apple, watermelon, pineapple, bomb];
-
+//functions to draw the fruits and the bomb
 function drawApple() {
     ctx.drawImage(apple.image, apple.x, apple.y, apple.width, apple.height);
 }
@@ -152,6 +146,7 @@ function detectWalls() {
     }
 }
 
+//bring the fruit back to the top of the screen and applies a delay so that the game is not to hectic as well as set a new drop position
 function newApple() {
     apple.y = -55;
     setTimeout(() => {
@@ -202,6 +197,7 @@ function newBomb() {
     bomb.x = randomDropPositionBomb;
 }
 
+//create a condition so that the fruit does not drop out of order and waits for its turn to fall
 function dropApple() {
     if (apple.y >= 0) {
         apple.y += apple.dy;
@@ -252,6 +248,7 @@ function initialBombDrop() {
     bomb.y = 0;
 }
 
+//set the timeout to drop the fruits staggered instead of all at once
 function firstDrop() {
     appleTimeout = setTimeout(initialAppleDrop, 100);
     orangeTimeout = setTimeout(initialOrangeDrop, 3000);
@@ -260,6 +257,7 @@ function firstDrop() {
     watermelonTimeout = setTimeout(initialWatermelonDrop, 20000);
 }
 
+//add score to the scoreboard base on what is caught in the basket
 function newAddScore() {
     if (apple.x + apple.width >= player.x && apple.x < player.x + player.width && apple.y + apple.height > player.y) {
         score += apple.fruitScore;
@@ -286,6 +284,7 @@ function newAddScore() {
     scoreDisplay.innerHTML = score;
 }
 
+//when a fruit or bomb misses the basket
 function missedFruit() {
     if (apple.y > canvas.height) {
         lives -= 1;
@@ -327,26 +326,21 @@ function gameOver() {
 //updating the canvas to allow for smooth animation
 function update() {
     if (isRunning) {
-    //clearing the canvas
+    //clearing the canvas so that the original image is erased
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //drawing the images
     drawApple();
     drawOrange();
     drawWatermelon();
     drawPineapple();
     drawBomb();
     drawPlayer();
-    //moving the player
     movePlayer();
-    //making the fruit drop
     dropApple();
     dropOrange();
     dropWatermelon();
     dropPineapple();
     dropBomb();
-    //add score and bring items back to the top
     newAddScore();
-    //when a fruit is missed
     missedFruit();
     gameOver();
     requestAnimationFrame(update);
@@ -374,10 +368,7 @@ function keyDown(e) {
 }
 
 function keyUp(e) {
-    if (e.key === 'ArrowRight' ||
-        e.key === 'Right' ||
-        e.key === 'ArrowLeft' ||
-        e.key === 'Left') {
+    if (e.key === 'ArrowRight' || e.key === 'Right' || e.key === 'ArrowLeft' || e.key === 'Left') {
             player.dx = 0;
         }
 }
