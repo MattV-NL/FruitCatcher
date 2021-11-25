@@ -151,7 +151,7 @@ function newApple() {
     apple.y = -55;
     setTimeout(() => {
         apple.y = 0
-    }, 3000);
+    }, 2000);
     nextRandomDropPositionApple = Math.floor(Math.random() * 750);
     randomDropPositionApple = nextRandomDropPositionApple;
     apple.x = randomDropPositionApple;
@@ -161,7 +161,7 @@ function newOrange() {
     orange.y = -55;
     setTimeout(() => {
         orange.y = 0;
-    }, 3000);
+    }, 2000);
     nextRandomDropPositionOrange = Math.floor(Math.random() * 750);
     randomDropPositionOrange = nextRandomDropPositionOrange;
     orange.x = randomDropPositionOrange;
@@ -171,7 +171,7 @@ function newWatermelon() {
     watermelon.y = -60;
     setTimeout(() => {
         watermelon.y = 0;
-    }, 3000);
+    }, 2000);
     nextRandomDropPositionWatermelon = Math.floor(Math.random() * 750);
     randomDropPositionWatermelon = nextRandomDropPositionWatermelon;
     watermelon.x = randomDropPositionWatermelon;
@@ -181,7 +181,7 @@ function newPineapple() {
     pineapple.y = -80;
     setTimeout(() => {
         pineapple.y = 0
-    }, 3000);
+    }, 2000);
     nextRandomDropPositionPineapple = Math.floor(Math.random() * 750);
     randomDropPositionPineapple = nextRandomDropPositionPineapple;
     pineapple.x = randomDropPositionPineapple;
@@ -191,7 +191,7 @@ function newBomb() {
     bomb.y = -80;
     setTimeout(() => {
         bomb.y = 0;
-    }, 4000);
+    }, 3000);
     nextRandomDropPositionBomb = Math.floor(Math.random() * 750);
     randomDropPositionBomb = nextRandomDropPositionBomb;
     bomb.x = randomDropPositionBomb;
