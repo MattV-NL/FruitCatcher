@@ -2,15 +2,15 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 //setting a drop position for each fruit so that they act indipendantly
-let randomDropPositionApple = Math.floor(Math.random() * 750);
+let randomDropPositionApple = Math.floor(Math.random() * 500);
 let nextRandomDropPositionApple = 0;
-let randomDropPositionOrange = Math.floor(Math.random() * 750);
+let randomDropPositionOrange = Math.floor(Math.random() * 500);
 let nextRandomDropPositionOrange = 0;
-let randomDropPositionWatermelon = Math.floor(Math.random() * 750);
+let randomDropPositionWatermelon = Math.floor(Math.random() * 500);
 let nextRandomDropPositionWatermelon = 0;
-let randomDropPositionPineapple = Math.floor(Math.random() * 750);
+let randomDropPositionPineapple = Math.floor(Math.random() * 500);
 let nextRandomDropPositionPineapple = 0;
-let randomDropPositionBomb = Math.floor(Math.random() * 750);
+let randomDropPositionBomb = Math.floor(Math.random() * 500);
 let nextRandomDropPositionBomb = 0;
 
 //adding images for game
@@ -40,9 +40,9 @@ const livesDisplay = document.getElementById('lives-display');
 const apple = {
     x: randomDropPositionApple,
     y: -55,
-    width: 50,
-    height: 55,
-    dy: 1.8,
+    width: 38,
+    height: 41,
+    dy: 2.2,
     image: appleImg,
     fruitScore: 50,
     isBomb: false
@@ -51,9 +51,9 @@ const apple = {
 const orange = {
     x: randomDropPositionOrange,
     y: -55,
-    width: 50,
-    height: 55,
-    dy: 1.8,
+    width: 38,
+    height: 41,
+    dy: 2.2,
     image: orangeImg,
     fruitScore: 75,
     isBomb: false
@@ -61,10 +61,10 @@ const orange = {
 
 const watermelon = {
     x: randomDropPositionWatermelon,
-    y: -60,
-    width: 80,
-    height: 60,
-    dy: 1.8,
+    y: -45,
+    width: 60,
+    height: 45,
+    dy: 2.2,
     image: watermelonImg,
     fruitScore: 100,
     isBomb: false
@@ -72,10 +72,10 @@ const watermelon = {
 
 const pineapple = {
     x: randomDropPositionPineapple,
-    y: -80,
-    width: 70,
-    height: 80,
-    dy: 1.8,
+    y: -60,
+    width: 53,
+    height: 60,
+    dy: 2.2,
     image: pineappleImg,
     fruitScore: 80,
     isBomb: false
@@ -83,20 +83,20 @@ const pineapple = {
 
 const bomb = {
     x: randomDropPositionBomb,
-    y: -80,
-    width: 80,
-    height: 80,
-    dy: 2,
+    y: -60,
+    width: 60,
+    height: 60,
+    dy: 2.5,
     image: bombImg,
     fruitScore: 0,
     isBomb: true
 }
 
 const player = {
-    x: canvas.width / 2 - 60,
-    y: canvas.height - 80,
-    width: 120,
-    height: 80,
+    x: canvas.width / 2 - 45,
+    y: canvas.height - 60,
+    width: 90,
+    height: 60,
     speed: 6,
     dx: 0,
     image: basketImg
@@ -148,51 +148,51 @@ function detectWalls() {
 
 //bring the fruit back to the top of the screen and applies a delay so that the game is not to hectic as well as set a new drop position
 function newApple() {
-    apple.y = -55;
+    apple.y = -41;
     setTimeout(() => {
         apple.y = 0
     }, 2000);
-    nextRandomDropPositionApple = Math.floor(Math.random() * 750);
+    nextRandomDropPositionApple = Math.floor(Math.random() * 500);
     randomDropPositionApple = nextRandomDropPositionApple;
     apple.x = randomDropPositionApple;
 }
 
 function newOrange() {
-    orange.y = -55;
+    orange.y = -41;
     setTimeout(() => {
         orange.y = 0;
     }, 2000);
-    nextRandomDropPositionOrange = Math.floor(Math.random() * 750);
+    nextRandomDropPositionOrange = Math.floor(Math.random() * 500);
     randomDropPositionOrange = nextRandomDropPositionOrange;
     orange.x = randomDropPositionOrange;
 }
 
 function newWatermelon() {
-    watermelon.y = -60;
+    watermelon.y = -45;
     setTimeout(() => {
         watermelon.y = 0;
     }, 2000);
-    nextRandomDropPositionWatermelon = Math.floor(Math.random() * 750);
+    nextRandomDropPositionWatermelon = Math.floor(Math.random() * 500);
     randomDropPositionWatermelon = nextRandomDropPositionWatermelon;
     watermelon.x = randomDropPositionWatermelon;
 }
 
 function newPineapple() {
-    pineapple.y = -80;
+    pineapple.y = -60;
     setTimeout(() => {
         pineapple.y = 0
     }, 2000);
-    nextRandomDropPositionPineapple = Math.floor(Math.random() * 750);
+    nextRandomDropPositionPineapple = Math.floor(Math.random() * 500);
     randomDropPositionPineapple = nextRandomDropPositionPineapple;
     pineapple.x = randomDropPositionPineapple;
 }
 
 function newBomb() {
-    bomb.y = -80;
+    bomb.y = -60;
     setTimeout(() => {
         bomb.y = 0;
-    }, 3000);
-    nextRandomDropPositionBomb = Math.floor(Math.random() * 750);
+    }, 1500);
+    nextRandomDropPositionBomb = Math.floor(Math.random() * 500);
     randomDropPositionBomb = nextRandomDropPositionBomb;
     bomb.x = randomDropPositionBomb;
 }
@@ -316,11 +316,11 @@ let isRunning = true;
 
 function gameOver() {
     if (lives < 1) {
-        ctx.font = '64px Arial';
-        ctx.fillText('GAME OVER', 200, 400);
-        ctx.font = "32px Arial";
-        ctx.fillText('Your Score was', 200, 450);
-        ctx.fillText(score, 450, 450);
+        ctx.font = '48px Arial';
+        ctx.fillText('GAME OVER', 150, 300);
+        ctx.font = "28px Arial";
+        ctx.fillText('Your Score was', 150, 338);
+        ctx.fillText(score, 400, 338);
         isRunning = false;
         gameoverSound.play();
     }
@@ -365,6 +365,7 @@ function moveRight() {
 function keyDown(e) {
     if (e.key === 'ArrowRight' || e.key === 'Right') {
         moveRight();
+        console.log(e);
     } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
         moveLeft();
     }
@@ -376,9 +377,29 @@ function keyUp(e) {
         }
 }
 
+function mouseDown(e) {
+    if (e.target === leftArrow) {
+        moveLeft();
+    } else if (e.target === rightArrow) {
+        moveRight();
+    }
+}
+
+function mouseUp(e) {
+    if (e.target === leftArrow || e.target === rightArrow) {
+        player.dx = 0;
+    }
+}
 //Add event listeners to document to check for key presses on the arrow keys
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
+const leftArrow = document.getElementById('left-arrow-button');
+const rightArrow = document.getElementById('right-arrow-button');
+
+leftArrow.addEventListener('mousedown', mouseDown);
+leftArrow.addEventListener('mouseup', mouseUp);
+rightArrow.addEventListener('mousedown', mouseDown);
+rightArrow.addEventListener('mouseup', mouseUp);
 
 //set up start, pause, and reset buttons
 const startButton = document.getElementById('start-button');
@@ -390,7 +411,7 @@ startButton.addEventListener('click', update);
 
 function pauseGame() {
     if (isRunning) {
-        ctx.drawImage(pauseImg, 250, 250, 300, 300);
+        ctx.drawImage(pauseImg, 187.5, 187.5, 225, 225);
         pauseButton.innerHTML = 'RESUME';
         isRunning = false;
     } else {
@@ -408,8 +429,8 @@ function resetGame() {
     isRunning = true;
     pauseButton.innerHTML = 'PAUSE';
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    player.x = canvas.width / 2 - 60;
-    player.y = canvas.height - 80;
+    player.x = canvas.width / 2 - 45;
+    player.y = canvas.height - 60;
     apple.y = -55;
     orange.y = -55;
     watermelon.y = -60;

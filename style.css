@@ -9,6 +9,7 @@ body {
     min-height: 100vh;
     margin: 0;
     background-image: url(./images/background.png);
+    background-repeat: no-repeat;
     background-position: center center;
 }
 
@@ -151,4 +152,63 @@ li {
     position: absolute;
     bottom: 18%;
     left: 5%;
+}
+
+.arrow-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.left-arrow-button {
+    margin-top: 20px;
+    margin-right: 25px;
+    background-color: grey;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 250px;
+    height: 50px;
+}
+
+.left-arrow-button:hover {
+    margin-top: 20px;
+    margin-right: 25px;
+    background-color: darkgrey;
+    border: 1px solid white;;
+    border-radius: 5px;
+    width: 250px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.right-arrow-button {
+    margin-top: 20px;
+    margin-left: 25px;
+    background-color: grey;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 250px;
+    height: 50px;
+}
+
+.right-arrow-button:hover {
+    margin-top: 20px;
+    margin-left: 25px;
+    background-color: darkgrey;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 250px;
+    height: 50px;
+    cursor: pointer;
+}
+
+#left-arrow {
+    width: 80px;
+    height: 40px;
+}
+
+#right-arrow {
+    width: 80px;
+    height: 40px;
 }
