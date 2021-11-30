@@ -377,7 +377,7 @@ function keyUp(e) {
         }
 }
 
-function mouseDown(e) {
+function touchArrow(e) {
     if (e.target === leftArrow) {
         moveLeft();
     } else if (e.target === rightArrow) {
@@ -385,7 +385,7 @@ function mouseDown(e) {
     }
 }
 
-function mouseUp(e) {
+function stopTouchArrow(e) {
     if (e.target === leftArrow || e.target === rightArrow) {
         player.dx = 0;
     }
@@ -396,10 +396,10 @@ document.addEventListener('keyup', keyUp);
 const leftArrow = document.getElementById('left-arrow-button');
 const rightArrow = document.getElementById('right-arrow-button');
 
-leftArrow.addEventListener('mousedown', mouseDown);
-leftArrow.addEventListener('mouseup', mouseUp);
-rightArrow.addEventListener('mousedown', mouseDown);
-rightArrow.addEventListener('mouseup', mouseUp);
+leftArrow.addEventListener('touchstart', touchArrow);
+leftArrow.addEventListener('touchend', stopTouchArrow);
+rightArrow.addEventListener('touchend', stopTouchArrow);
+rightArrow.addEventListener('touchstart', touchArrow);
 
 //set up start, pause, and reset buttons
 const startButton = document.getElementById('start-button');
