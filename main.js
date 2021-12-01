@@ -387,7 +387,7 @@ function touchArrow(e) {
 }
 
 function stopTouchArrow(e) {
-    if (e.target === leftArrow || e.target === rightArrow) {
+    if (e.target === leftArrow || e.target === rightArrow || e.target === leftArrowImg || e.target === rightArrowImg) {
         player.dx = 0;
     }
 }
