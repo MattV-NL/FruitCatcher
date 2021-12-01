@@ -59,5 +59,3 @@ function resetTimer() {
     timerSec.innerHTML = '00';
     timerMin.innerHTML = '00';
 }
-
-//startButton.addEventListener('click', startTimer);
