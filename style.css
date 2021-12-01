@@ -138,6 +138,39 @@ li {
     right: 5%;
 }
 
+#butterfly2 {
+    display: none;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 5%;
+    top: 40%;
+}
+#butterfly3 {
+    display: none;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 30%;
+    top: 60%;
+}
+#butterfly4 {
+    display: none;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 85%;
+    top: 10%;
+}
+#butterfly5 {
+    display: none;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: 5%;
+    top: 70%;
+}
+
 #bird {
     display: none;
     height: 300px;
@@ -150,7 +183,7 @@ li {
     display: none;
     height: 100px;
     position: absolute;
-    bottom: 0%;
+    bottom: 10%;
     left: 5%;
 }
 

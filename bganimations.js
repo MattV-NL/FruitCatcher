@@ -1,4 +1,8 @@
 const butterfly = document.getElementById('butterfly');
+const butterfly2 = document.getElementById('butterfly2');
+const butterfly3 = document.getElementById('butterfly3');
+const butterfly4 = document.getElementById('butterfly4');
+const butterfly5 = document.getElementById('butterfly5');
 const bird = document.getElementById('bird');
 const squirrel = document.getElementById('squirrel');
 
@@ -8,13 +12,38 @@ removeAnimation = null;
 function drawButterfly() {
     animationTimer = setInterval(() => {
         butterfly.style.display = 'flex';
-    }, 10000);
+    }, 8000);
+    animationTimer = setInterval(() => {
+        butterfly2.style.display = 'flex';
+    }, 5000);
+    animationTimer = setInterval(() => {
+        butterfly3.style.display = 'flex';
+    }, 12000);
+    animationTimer = setInterval(() => {
+        butterfly4.style.display = 'flex';
+    }, 15000);
+    animationTimer = setInterval(() => {
+        butterfly5.style.display = 'flex';
+    }, 18000);
 }
 
 function removeButterfly() {
     removeAnimation = setInterval(() => {
         butterfly.style.display = 'none';
-    }, 13000);
+    }, 11000);
+    removeAnimation = setInterval(() => {
+        butterfly2.style.display = 'none';
+    }, 8000);
+    removeAnimation = setInterval(() => {
+        butterfly3.style.display = 'none';
+    }, 15000);
+    removeAnimation = setInterval(() => {
+        butterfly4.style.display = 'none';
+    }, 18000);
+    removeAnimation = setInterval(() => {
+        butterfly5.style.display = 'none';
+    }, 21000);
+
 }
 
 function drawBird() {
@@ -26,13 +55,13 @@ function drawBird() {
 function removeBird() {
     removeAnimation = setInterval(() => {
         bird.style.display = 'none';
-    }, 18000);
+    }, 17500);
 }
 
 function drawSquirrel() {
     animationTimer = setInterval(() => {
         squirrel.style.display = 'flex';
-    }, 20000);
+    }, 17000);
 }
 
 function removeSquirrel() {
