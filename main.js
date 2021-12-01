@@ -401,8 +401,12 @@ const rightArrowImg = document.getElementById('right-arrow');
 
 leftArrow.addEventListener('touchstart', touchArrow);
 leftArrow.addEventListener('touchend', stopTouchArrow);
+leftArrow.addEventListener('mousedown', touchArrow);
+leftArrow.addEventListener('mouseup', stopTouchArrow);
 rightArrow.addEventListener('touchend', stopTouchArrow);
 rightArrow.addEventListener('touchstart', touchArrow);
+rightArrow.addEventListener('mousedown', touchArrow);
+rightArrow.addEventListener('mouseup', stopTouchArrow);
 
 //set up start, pause, and reset buttons
 const startButton = document.getElementById('start-button');
