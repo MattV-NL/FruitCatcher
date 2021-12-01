@@ -321,6 +321,7 @@ function gameOver() {
         ctx.font = "28px Arial";
         ctx.fillText('Your Score was', 150, 338);
         ctx.fillText(score, 400, 338);
+        stopTimer();
         isRunning = false;
         gameoverSound.play();
     }
@@ -378,9 +379,9 @@ function keyUp(e) {
 }
 
 function touchArrow(e) {
-    if (e.target === leftArrow) {
+    if (e.target === leftArrow || e.target === leftArrowImg) {
         moveLeft();
-    } else if (e.target === rightArrow) {
+    } else if (e.target === rightArrow || e.target === rightArrowImg) {
         moveRight();
     }
 }
@@ -394,7 +395,9 @@ function stopTouchArrow(e) {
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
 const leftArrow = document.getElementById('left-arrow-button');
+const leftArrowImg = document.getElementById('left-arrow');
 const rightArrow = document.getElementById('right-arrow-button');
+const rightArrowImg = document.getElementById('right-arrow');
 
 leftArrow.addEventListener('touchstart', touchArrow);
 leftArrow.addEventListener('touchend', stopTouchArrow);
@@ -414,9 +417,11 @@ function pauseGame() {
         ctx.drawImage(pauseImg, 187.5, 187.5, 225, 225);
         pauseButton.innerHTML = 'RESUME';
         isRunning = false;
+        stopTimer();
     } else {
         isRunning = true;
         pauseButton.innerHTML = 'PAUSE';
+        startTimer();
         update();
     }
 }
@@ -442,9 +447,12 @@ function resetGame() {
     clearTimeout(pineappleTimeout);
     clearTimeout(watermelonTimeout);
     clearTimeout(bombTimeout);
+    resetTimer();
     startButton.addEventListener('click', firstDrop);
     startButton.addEventListener('click', update);
+    startButton.addEventListener('click', startTimer);
     pauseButton.removeEventListener('click', pauseGame);
+    pauseButton.removeEventListener('click', stopTimer);
 }
 
 resetButton.addEventListener('click', resetGame);

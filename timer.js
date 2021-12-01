@@ -1,11 +1,11 @@
 let x;
 let startstop = 0;
 
-function start() {
+function startTimer() {
     x = setInterval(timer, 10);
 }
 
-function stop() {
+function stopTimer() {
     clearInterval(x);
 }
 
@@ -16,6 +16,10 @@ let min = 0;
 let milisecOut = 0;
 let secOut = 0;
 let minOut = 0;
+
+let timerMilisec = document.getElementById('timer-display-milisec');
+let timerSec = document.getElementById('timer-display-sec');
+let timerMin = document.getElementById('timer-display-min');
 
 function timer() {
     milisecOut = checkTime(milisec);
@@ -34,9 +38,9 @@ function timer() {
         sec = 0;
     }
 
-    document.getElementById('timer-display-milisec').innerHTML = milisecOut;
-    document.getElementById('timer-display-sec').innerHTML = secOut;
-    document.getElementById('timer-display-min').innerHTML = minOut;
+    timerMilisec.innerHTML = milisecOut;
+    timerSec.innerHTML = secOut;
+    timerMin.innerHTML = minOut;
 }
 function checkTime(i) {
     if (i < 10) {
@@ -45,16 +49,15 @@ function checkTime(i) {
     return i;
 }
 
-function reset() {
-    stop();
+function resetTimer() {
+    stopTimer();
     milisec = 00;
     sec = 00;
     min = 0;
 
-    document.getElementById('timer-display-milisec').innerHTML = '00';
-    document.getElementById('timer-display-sec').innerHTML = '00';
-    document.getElementById('timer-display-min').innerHTML = '00';
+    timerMilisec.innerHTML = '00';
+    timerSec.innerHTML = '00';
+    timerMin.innerHTML = '00';
 }
 
-startButton.addEventListener('click', start);
-resetButton.addEventListener('click', reset);
+startButton.addEventListener('click', startTimer);
