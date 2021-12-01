@@ -60,4 +60,4 @@ function resetTimer() {
     timerMin.innerHTML = '00';
 }
 
-startButton.addEventListener('click', startTimer);
+//startButton.addEventListener('click', startTimer);

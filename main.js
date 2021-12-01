@@ -350,6 +350,7 @@ function update() {
     requestAnimationFrame(update);
     startButton.removeEventListener('click', update);
     startButton.removeEventListener('click', firstDrop);
+    startButton.removeEventListener('click', startTimer);
     pauseButton.addEventListener('click', pauseGame);
     }
 }
@@ -366,7 +367,6 @@ function moveRight() {
 function keyDown(e) {
     if (e.key === 'ArrowRight' || e.key === 'Right') {
         moveRight();
-        console.log(e);
     } else if (e.key === 'ArrowLeft' || e.key === 'Left') {
         moveLeft();
     }
@@ -409,6 +409,7 @@ const startButton = document.getElementById('start-button');
 const pauseButton = document.getElementById('pause-button');
 const resetButton = document.getElementById('reset-button');
 
+startButton.addEventListener('click', startTimer);
 startButton.addEventListener('click', firstDrop);
 startButton.addEventListener('click', update);
 
@@ -448,9 +449,9 @@ function resetGame() {
     clearTimeout(watermelonTimeout);
     clearTimeout(bombTimeout);
     resetTimer();
+    startButton.addEventListener('click', startTimer);
     startButton.addEventListener('click', firstDrop);
     startButton.addEventListener('click', update);
-    startButton.addEventListener('click', startTimer);
     pauseButton.removeEventListener('click', pauseGame);
     pauseButton.removeEventListener('click', stopTimer);
 }
