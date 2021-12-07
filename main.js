@@ -461,3 +461,20 @@ function resetGame() {
 }
 
 resetButton.addEventListener('click', resetGame);
+
+/*---- Game update from posting in projects ----*/
+
+const closeButton = document.getElementById('close-button');
+const infoButton = document.getElementById('info-button');
+const infoWindow = document.getElementById('controls');
+
+closeButton.addEventListener('click', closeInfo);
+infoButton.addEventListener('click', openInfo);
+
+function closeInfo() {
+    infoWindow.style.display = 'none';
+}
+
+function openInfo() {
+    infoWindow.style.display = 'flex';
+}

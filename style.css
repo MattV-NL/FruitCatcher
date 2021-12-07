@@ -54,15 +54,26 @@ body {
     color: navy;
     background-color: rgb(253, 245, 230, .5);
     border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.close-button {
+    font-size: 24px;
+}
+
+.close-button:hover {
+    cursor: pointer;
 }
 
 .controls {
+    z-index: 1;
+    position: fixed;
     display: flex;
     justify-content: center;
     border-radius: 15px;
-    background-color: rgb(0, 0, 128, .5);
+    background-color: rgba(97, 97, 216);
     color: white;
-    margin-bottom: 10px;
+    padding: 15px;
 }
 
 ul {
@@ -101,6 +112,18 @@ li {
     border: 0;
     border-radius: 5px;
 }
+
+.info-button {
+    margin-left: 25px;
+    background-color: grey;
+    color: white;
+    padding: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 0;
+    border-radius: 50%;
+}
+
 .start-button:hover {
     margin-right: 25px;
     padding: 16px;
@@ -122,6 +145,19 @@ li {
     padding: 16px;
     color: white;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.info-button:hover {
+    margin-left: 25px;
+    background-color: dimgrey;
+    color: white;
+    padding: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 0;
+    border-radius: 50%;
     cursor: pointer;
 }
 
