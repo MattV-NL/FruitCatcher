@@ -18,34 +18,54 @@ body {
     border-radius: 8px;
     position: relative;
     border: 1px solid navy;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 800px;
+    max-height: 800px;
+    width: 60vw;
+    height:  60vh;
 }
 
 #apple {
     display: none;
+    width: 10px;
+    height: 10px;
 }
 
 #orange {
     display: none;
+    width: 10px;
+    height: 10px;
 }
 
 #watermelon {
     display: none;
+    width: 10px;
+    height: 10px;
 }
 
 #pineapple {
     display: none;
+    width: 10px;
+    height: 10px;
 }
 
 #bomb {
     display: none;
+    width: 10px;
+    height: 10px;
 }
 
 #basket {
     display: none;
+    width: 10px;
+    height: 10px;
 }
 
 #pause-icon {
     display: none;
+    width: 10px;
+    height: 10px;
 }
 
 .title {
