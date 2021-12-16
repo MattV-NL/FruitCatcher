@@ -134,6 +134,7 @@ li {
 }
 
 .start-button {
+    z-index: 1;
     margin-right: 25px;
     padding: 16px;
     background-color: green;
@@ -142,6 +143,7 @@ li {
     border-radius: 5px;
 }
 .pause-button {
+    z-index: 1;
     background-color: blue;
     padding: 16px;
     color: white;
@@ -149,6 +151,7 @@ li {
     border-radius: 5px;
 }
 .reset-button {
+    z-index: 1;
     margin-left: 25px;
     background-color: red;
     padding: 16px;
@@ -158,6 +161,7 @@ li {
 }
 
 .info-button {
+    z-index: 1;
     margin-left: 25px;
     background-color: grey;
     color: white;
