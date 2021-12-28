@@ -6,6 +6,6 @@ In this game the objective is to catch the falling fruit on the screen in the ba
 
 Let me know what you think of the game by reaching out to me on twitter @mattvey16
 
-I'm always looking for ways to improve not only this project but my skills and knowledge fro programming!
+I'm always looking for ways to improve not only this project but my skills and knowledge of programming!
 
 # Enjoy!
