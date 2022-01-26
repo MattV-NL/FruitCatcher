@@ -13,6 +13,10 @@ let nextRandomDropPositionPineapple = 0;
 let randomDropPositionBomb = Math.floor(Math.random() * canvas.width * 0.9);
 let nextRandomDropPositionBomb = 0;
 
+//setting drop position for power ups so that they can all use the same parameter
+let randomDropPositionPowerUp = Math.floor(Math.random() * canvas.width * 0.9);
+let nextRandomDropPositionPowerUp = 0;
+
 //adding images for game
 const appleImg = document.getElementById('apple');
 const orangeImg = document.getElementById('orange');
@@ -102,6 +106,45 @@ const player = {
     image: basketImg
 }
 
+//Adding power ups to the game
+
+const oneUp = {
+    x: randomDropPositionPowerUp,
+    y: -canvas.height * 0.1,
+    width: canvas.width * 0.06,
+    height: canvas.height * 0.07,
+    dy: canvas.height * 0.0037,
+    //image: oneUpImg,
+    color: 'green',
+    isBomb: false
+}
+
+const boostPlayerSpeed = {
+    x: randomDropPositionPowerUp,
+    y: -canvas.height * 0.1,
+    width: canvas.width * 0.06,
+    height: canvas.height * 0.07,
+    dy: canvas.height * 0.0037,
+    //image: boostPlayerSpeedImg,
+    color: 'green',
+    isBomb: false
+}
+
+const slowFruitDrop = {
+    x: randomDropPositionPowerUp,
+    y: -canvas.height * 0.1,
+    width: canvas.width * 0.06,
+    height: canvas.height * 0.07,
+    dy: canvas.height * 0.0037,
+    //image: slowFruitDropImg,
+    color: 'green',
+    isBomb: false
+}
+
+const powerUp = [oneUp, boostPlayerSpeed, slowFruitDrop];
+
+let randomPowerUp = Math.floor(Math.random() * powerUp.length);
+
 //functions to draw the fruits and the bomb
 function drawApple() {
     ctx.drawImage(apple.image, apple.x, apple.y, apple.width, apple.height);
@@ -129,6 +172,11 @@ function drawPlayer() {
 }
 
 drawPlayer();
+
+//draw power up
+function drawPowerUp() {
+    ctx.fillRect(oneUp.x, oneUp.y, oneUp.width, oneUp.height, oneUp.color);
+}
 
 //apend the position to the movement speed
 function movePlayer() {
@@ -197,6 +245,17 @@ function newBomb() {
     bomb.x = randomDropPositionBomb;
 }
 
+//Reset power up y position and set a delay so that the player will not receive to much of an advantage
+function newPowerUp() {
+    oneUp.y = -canvas.height * 0.1;
+    setTimeout(() => {
+        oneUp.y = 0;
+    }, 12000);
+    nextRandomDropPositionPowerUp = Math.floor(Math.random() * canvas.width * 0.9);
+    randomDropPositionPowerUp = nextRandomDropPositionPowerUp;
+    oneUp.x = randomDropPositionPowerUp;
+}
+
 //create a condition so that the fruit does not drop out of order and waits for its turn to fall
 function dropApple() {
     if (apple.y >= 0) {
@@ -228,6 +287,13 @@ function dropBomb() {
     }
 }
 
+//setting up drop for power up
+function dropPowerUp() {
+    if (oneUp.y >= 0) {
+        oneUp.y += oneUp.dy;
+    }
+}
+
 function initialAppleDrop() {
     apple.y = 0;
 }
@@ -248,6 +314,11 @@ function initialBombDrop() {
     bomb.y = 0;
 }
 
+//setting initial drop for the power up
+function initialPowerUpDrop() {
+    oneUp.y = 0;
+}
+
 //set the timeout to drop the fruits staggered instead of all at once
 function firstDrop() {
     appleTimeout = setTimeout(initialAppleDrop, 100);
@@ -255,6 +326,8 @@ function firstDrop() {
     pineappleTimeout = setTimeout(initialPineappleDrop, 6000);
     bombTimeout = setTimeout(initialBombDrop, 15000);
     watermelonTimeout = setTimeout(initialWatermelonDrop, 20000);
+    //new line
+    powerUpTimeout = setTimeout(initialPowerUpDrop, 12000);
 }
 
 //add score to the scoreboard base on what is caught in the basket
@@ -282,6 +355,16 @@ function addScore() {
         newBomb();
     }
     scoreDisplay.innerHTML = score;
+}
+
+//create funciton to activate when the power up is caught
+function addPowerUp() {
+    if (oneUp.x + oneUp.width >= player.x && oneUp.x < player.x + player.width && oneUp.y + oneUp.height > player.y) {
+    lives += 1;
+    livesDisplay.innerHTML = lives;
+    scorePointSound.play();
+    newPowerUp();
+    }
 }
 
 //when a fruit or bomb misses the basket
@@ -338,13 +421,19 @@ function update() {
     drawPineapple();
     drawBomb();
     drawPlayer();
+    //new line
+    drawPowerUp();
     movePlayer();
     dropApple();
     dropOrange();
     dropWatermelon();
     dropPineapple();
     dropBomb();
+    //new line
+    dropPowerUp();
     addScore();
+    //apply power up
+    addPowerUp();
     missedFruit();
     gameOver();
     requestAnimationFrame(update);
