@@ -329,3 +329,21 @@ li {
     width: 80px;
     height: 40px;
 }
+
+#oneUp {
+    display: none;
+    width: 10px;
+    height: 10px;
+}
+
+#slowFruit {
+    display: none;
+    width: 10px;
+    height: 10px;
+}
+
+#dashPlayer {
+    display: none;
+    width: 10px;
+    height: 10px;
+}
