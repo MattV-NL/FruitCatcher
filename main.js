@@ -25,6 +25,9 @@ const pineappleImg = document.getElementById('pineapple');
 const bombImg = document.getElementById('bomb');
 const basketImg = document.getElementById('basket');
 const pauseImg = document.getElementById('pause-icon');
+const oneUpImg = document.getElementById('oneUp');
+const slowFruitImg = document.getElementById('slowFruit');
+const dashPlayerImg = document.getElementById('dashPlayer');
 
 //adding sounds to game
 const explosionSound = document.getElementById('explosion-sound');
@@ -114,19 +117,18 @@ const oneUp = {
     width: canvas.width * 0.06,
     height: canvas.height * 0.07,
     dy: canvas.height * 0.0037,
-    //image: oneUpImg,
+    image: oneUpImg,
     color: 'green',
     isBomb: false
 }
 
-const boostPlayerSpeed = {
+const dashPlayer = {
     x: randomDropPositionPowerUp,
     y: -canvas.height * 0.1,
     width: canvas.width * 0.06,
     height: canvas.height * 0.07,
     dy: canvas.height * 0.0037,
-    //image: boostPlayerSpeedImg,
-    color: 'green',
+    image: dashPlayerImg,
     isBomb: false
 }
 
@@ -136,14 +138,14 @@ const slowFruitDrop = {
     width: canvas.width * 0.06,
     height: canvas.height * 0.07,
     dy: canvas.height * 0.0037,
-    //image: slowFruitDropImg,
-    color: 'green',
+    image: slowFruitImg,
     isBomb: false
 }
 
-const powerUp = [oneUp, boostPlayerSpeed, slowFruitDrop];
+const powerUp = [oneUp, dashPlayer, slowFruitDrop];
 
 let randomPowerUp = Math.floor(Math.random() * powerUp.length);
+let nextRandomPowerUp = 0;
 
 //functions to draw the fruits and the bomb
 function drawApple() {
@@ -175,7 +177,7 @@ drawPlayer();
 
 //draw power up
 function drawPowerUp() {
-    ctx.fillRect(oneUp.x, oneUp.y, oneUp.width, oneUp.height, oneUp.color);
+    ctx.drawImage(powerUp[randomPowerUp].image, powerUp[randomPowerUp].x, powerUp[randomPowerUp].y, powerUp[randomPowerUp].width, powerUp[randomPowerUp].height);
 }
 
 //apend the position to the movement speed
@@ -247,13 +249,15 @@ function newBomb() {
 
 //Reset power up y position and set a delay so that the player will not receive to much of an advantage
 function newPowerUp() {
-    oneUp.y = -canvas.height * 0.1;
+    powerUp[randomPowerUp].y = -canvas.height * 0.1;
     setTimeout(() => {
-        oneUp.y = 0;
+        powerUp[randomPowerUp].y = 0;
     }, 12000);
     nextRandomDropPositionPowerUp = Math.floor(Math.random() * canvas.width * 0.9);
     randomDropPositionPowerUp = nextRandomDropPositionPowerUp;
-    oneUp.x = randomDropPositionPowerUp;
+    powerUp[randomPowerUp].x = randomDropPositionPowerUp;
+    nextRandomPowerUp = Math.floor(Math.random() * powerUp.length);
+    randomPowerUp = nextRandomPowerUp;
 }
 
 //create a condition so that the fruit does not drop out of order and waits for its turn to fall
@@ -289,8 +293,8 @@ function dropBomb() {
 
 //setting up drop for power up
 function dropPowerUp() {
-    if (oneUp.y >= 0) {
-        oneUp.y += oneUp.dy;
+    if (powerUp[randomPowerUp].y >= 0) {
+        powerUp[randomPowerUp].y += powerUp[randomPowerUp].dy;
     }
 }
 
@@ -316,9 +320,34 @@ function initialBombDrop() {
 
 //setting initial drop for the power up
 function initialPowerUpDrop() {
-    oneUp.y = 0;
+    powerUp[randomPowerUp].y = 0;
 }
 
+function increasePlayerSpeed() {
+    player.speed = player.speed * 2;
+    setTimeout(reducePlayerSpeed, 8000);
+}
+
+function reducePlayerSpeed() {
+    player.speed = canvas.width * 0.01;
+}
+
+function reduceFruitSpeed() {
+    apple.dy = apple.dy * 0.75;
+    orange.dy = orange.dy * 0.75;
+    watermelon.dy = watermelon.dy * 0.75;
+    pineapple.dy = pineapple.dy * 0.75;
+    bomb.dy = bomb.dy * 0.75;
+    setTimeout(increaseFruitSpeed, 8000);
+}
+
+function increaseFruitSpeed() {
+    apple.dy = canvas.height * 0.0037;
+    orange.dy = canvas.height * 0.0037;
+    watermelon.dy = canvas.height * 0.0037;
+    pineapple.dy = canvas.height * 0.0037
+    bomb.dy = canvas.height * 0.004
+}
 //set the timeout to drop the fruits staggered instead of all at once
 function firstDrop() {
     appleTimeout = setTimeout(initialAppleDrop, 100);
@@ -359,11 +388,19 @@ function addScore() {
 
 //create funciton to activate when the power up is caught
 function addPowerUp() {
-    if (oneUp.x + oneUp.width >= player.x && oneUp.x < player.x + player.width && oneUp.y + oneUp.height > player.y) {
-    lives += 1;
-    livesDisplay.innerHTML = lives;
-    scorePointSound.play();
-    newPowerUp();
+    if (powerUp[randomPowerUp].x + powerUp[randomPowerUp].width >= player.x && powerUp[randomPowerUp].x < player.x + player.width && powerUp[randomPowerUp].y + powerUp[randomPowerUp].height > player.y && randomPowerUp === 0) {
+        lives += 1;
+        livesDisplay.innerHTML = lives;
+        scorePointSound.play();
+        newPowerUp();
+    } else if (powerUp[randomPowerUp].x + powerUp[randomPowerUp].width >= player.x && powerUp[randomPowerUp].x < player.x + player.width && powerUp[randomPowerUp].y + powerUp[randomPowerUp].height > player.y && randomPowerUp === 1) {
+        increasePlayerSpeed();
+        scorePointSound.play();
+        newPowerUp();
+    } else if (powerUp[randomPowerUp].x + powerUp[randomPowerUp].width >= player.x && powerUp[randomPowerUp].x < player.x + player.width && powerUp[randomPowerUp].y + powerUp[randomPowerUp].height > player.y && randomPowerUp === 2) {
+        reduceFruitSpeed();
+        scorePointSound.play();
+        newPowerUp();
     }
 }
 
