@@ -458,7 +458,6 @@ function update() {
     drawPineapple();
     drawBomb();
     drawPlayer();
-    //new line
     drawPowerUp();
     movePlayer();
     dropApple();
@@ -466,10 +465,8 @@ function update() {
     dropWatermelon();
     dropPineapple();
     dropBomb();
-    //new line
     dropPowerUp();
     addScore();
-    //apply power up
     addPowerUp();
     missedFruit();
     gameOver();
@@ -572,12 +569,8 @@ function resetGame() {
     watermelon.y = -60;
     pineapple.y = -80;
     bomb.y = -80;
+    powerUp[randomPowerUp].y = -55;
     drawPlayer();
-    clearTimeout(appleTimeout);
-    clearTimeout(orangeTimeout);
-    clearTimeout(pineappleTimeout);
-    clearTimeout(watermelonTimeout);
-    clearTimeout(bombTimeout);
     resetTimer();
     startButton.addEventListener('click', startTimer);
     startButton.addEventListener('click', firstDrop);
@@ -587,8 +580,6 @@ function resetGame() {
 }
 
 resetButton.addEventListener('click', resetGame);
-
-/*---- Game update from posting in projects ----*/
 
 const closeButton = document.getElementById('close-button');
 const infoButton = document.getElementById('info-button');
