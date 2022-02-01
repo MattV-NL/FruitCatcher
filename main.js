@@ -355,7 +355,6 @@ function firstDrop() {
     pineappleTimeout = setTimeout(initialPineappleDrop, 6000);
     bombTimeout = setTimeout(initialBombDrop, 15000);
     watermelonTimeout = setTimeout(initialWatermelonDrop, 20000);
-    //new line
     powerUpTimeout = setTimeout(initialPowerUpDrop, 12000);
 }
 
