@@ -1,85 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Fruit Catcher">
-    <meta property="og:description" content="This is a game I created using Javascript, Click Here to Try it Out!">
-    <meta property="og:image" content="FruitBasket.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Fruit Catcher" />
+    <meta
+      property="og:description"
+      content="This is a game I created using Javascript, Click Here to Try it Out!"
+    />
+    <meta property="og:image" content="FruitBasket.png" />
     <title>Fruit Catcher</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <div class="title-container">
-            <h1 class="title">Fruit Catcher Game</h1>
-        </div>
-        <div class="controls" id="controls">
-            <span class="close-button" id="close-button">&times;</span>
-            <div class="controls-message">
-            <p>Welcome to my version of a Fruit Catcher Game!! Have fun!</p>
-            <ul>How to play
-                <li>Left arrow moves basket Left</li>
-                <li>Right arrow moves basket Right</li>
-                <li>You can use the arrow keys on your keyboard or use your mouse or<br> touchscreen on the buttons below
-                </li>
-                <li>Catching a fruit earns the player points</li>
-                <li>Look out for the bombs! They cause the player to lose a life</li>
-                <li>But dont worry, there are power ups in the game to help get you further along!</li>
-                <li>Missing a fruit will make the player lose a life as well</li>
-            </ul>
-            </div>
-        </div>
-        <div class="buttons">
-            <button class="start-button" id="start-button">START</button>
-            <button class="pause-button" id="pause-button">PAUSE</button>
-            <button class="reset-button" id="reset-button">RESET</button>
-            <button class="info-button" id="info-button">&quest;</button>
-        </div>
-        <div class="score" id="score">
-            <h2>SCORE:<span class="score-display" id="score-display">0</span></h2>
-        </div>
-        <div class="score">
-            <h2>LIVES:<span class="lives display" id="lives-display">3</span></h2>
-        </div>
-        <div class="score">
-            <h2>TIME:<span id="timer-display-min">00</span><span>:</span><span id="timer-display-sec">00</span><span>:</span><span id="timer-display-milisec">00</span></h2>
-        </div>
-        <div class="playarea">
-            <canvas id="canvas" width="600" height="600"></canvas>
-        </div>
-        <div class="arrow-buttons">
-            <button class="left-arrow-button" id="left-arrow-button"><img src="images/arrow-left.png" alt="" id="left-arrow"></button>
-            <button class="right-arrow-button" id="right-arrow-button"><img src="images/arrow-right.png" alt="" id="right-arrow"></button>
-        </div>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="title-container">
+      <h1 class="title">Fruit Catcher Game</h1>
     </div>
-</body>
+    <div class="controls" id="controls">
+      <span class="close-button" id="close-button">&times;</span>
+      <div class="controls-message">
+        <p>Welcome to my version of a Fruit Catcher Game!! Have fun!</p>
+        <ul>
+          How to play
+          <li>Left arrow moves basket Left</li>
+          <li>Right arrow moves basket Right</li>
+          <li>
+            You can use the arrow keys on your keyboard or use your mouse or<br />
+            touchscreen on the buttons below
+          </li>
+          <li>Catching a fruit earns the player points</li>
+          <li>Look out for the bombs! They cause the player to lose a life</li>
+          <li>
+            But dont worry, there are power ups in the game to help get you
+            further along!
+          </li>
+          <li>Missing a fruit will make the player lose a life as well</li>
+        </ul>
+      </div>
+    </div>
+    <div class="buttons-container">
+      <div class="buttons">
+        <button class="start-button" id="start-button">START</button>
+        <button class="pause-button" id="pause-button">PAUSE</button>
+        <button class="reset-button" id="reset-button">RESET</button>
+        <button class="info-button" id="info-button">HELP</button>
+      </div>
+    </div>
+    <div class="scoreboard">
+      <div class="score" id="score">
+        <h2>SCORE:<span class="score-display" id="score-display">0</span></h2>
+      </div>
+      <div class="score">
+        <h2>LIVES:<span class="lives display" id="lives-display">3</span></h2>
+      </div>
+      <div class="score">
+        <h2>
+          TIME:<span id="timer-display-min">00</span><span>:</span
+          ><span id="timer-display-sec">00</span><span>:</span
+          ><span id="timer-display-milisec">00</span>
+        </h2>
+      </div>
+    </div>
+    <div class="playarea">
+      <canvas id="canvas" width="600" height="600"></canvas>
+    </div>
+    <div class="arrow-buttons">
+      <button class="left-arrow-button" id="left-arrow-button">
+        <img src="images/arrow-left.png" alt="" id="left-arrow" />
+      </button>
+      <button class="right-arrow-button" id="right-arrow-button">
+        <img src="images/arrow-right.png" alt="" id="right-arrow" />
+      </button>
+    </div>
+  </body>
 
-<img src="images/apple.png" alt="" id="apple">
-<img src="images/orange.png" alt="" id="orange">
-<img src="images/watermelon.png" alt="" id="watermelon">
-<img src="images/pineapple.png" alt="" id="pineapple">
-<img src="images/bomb.png" alt="" id="bomb">
-<img src="images/basket.png" alt="" id="basket">
-<img src="images/pause-icon.png" alt="" id="pause-icon">
-<img src="images/butterfly.gif" alt="" id="butterfly">
-<img src="images/butterfly.gif" alt="" id="butterfly2">
-<img src="images/butterfly.gif" alt="" id="butterfly3">
-<img src="images/butterfly.gif" alt="" id="butterfly4">
-<img src="images/butterfly.gif" alt="" id="butterfly5">
-<img src="images/bird.gif" alt="" id="bird">
-<img src="images/squirrel.gif" alt="" id="squirrel">
-<img src="images/lifeImg.png" alt="" id="oneUp">
-<img src="images/slowFruitImg.png" alt="" id="slowFruit">
-<img src="images/dashImg.png" alt="" id="dashPlayer">
+  <img src="images/apple.png" alt="" id="apple" />
+  <img src="images/orange.png" alt="" id="orange" />
+  <img src="images/watermelon.png" alt="" id="watermelon" />
+  <img src="images/pineapple.png" alt="" id="pineapple" />
+  <img src="images/bomb.png" alt="" id="bomb" />
+  <img src="images/basket.png" alt="" id="basket" />
+  <img src="images/pause-icon.png" alt="" id="pause-icon" />
+  <img src="images/butterfly.gif" alt="" id="butterfly" />
+  <img src="images/butterfly.gif" alt="" id="butterfly2" />
+  <img src="images/butterfly.gif" alt="" id="butterfly3" />
+  <img src="images/butterfly.gif" alt="" id="butterfly4" />
+  <img src="images/butterfly.gif" alt="" id="butterfly5" />
+  <img src="images/bird.gif" alt="" id="bird" />
+  <img src="images/squirrel.gif" alt="" id="squirrel" />
+  <img src="images/lifeImg.png" alt="" id="oneUp" />
+  <img src="images/slowFruitImg.png" alt="" id="slowFruit" />
+  <img src="images/dashImg.png" alt="" id="dashPlayer" />
 
-<audio src="./audio/explosion.wav" id="explosion-sound"></audio>
-<audio src="./audio/gameover.wav" id="gameover-sound"></audio>
-<audio src="./audio/scorepoints.wav" id="score-points-sound"></audio>
-<audio src="./audio/miss.wav" id="miss-sound"></audio>
+  <audio src="./audio/explosion.wav" id="explosion-sound"></audio>
+  <audio src="./audio/gameover.wav" id="gameover-sound"></audio>
+  <audio src="./audio/scorepoints.wav" id="score-points-sound"></audio>
+  <audio src="./audio/miss.wav" id="miss-sound"></audio>
 
-<script src="timer.js"></script>
-<script src="main.js"></script>
-<script src="bganimations.js"></script>
+  <script src="timer.js"></script>
+  <script src="main.js"></script>
+  <script src="bganimations.js"></script>
 </html>

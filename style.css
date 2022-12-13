@@ -1,341 +1,334 @@
 body {
-    background-color: skyblue;
-    color: navy;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 8%;
-    background-image: url(./images/background.png);
-    background-repeat: no-repeat;
-    background-position: center center;
+  background-color: skyblue;
+  color: navy;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 8%;
+  background-image: url(./images/background.png);
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 #canvas {
-    z-index: -2;
-    border-radius: 8px;
-    position: relative;
-    border: 1px solid navy;
-    min-width: 120px;
-    min-height: 120px;
-    max-width: 800px;
-    max-height: 800px;
-    width: 80vw;
-    height:  80vw;
+  z-index: -2;
+  border-radius: 1rem;
+  border: 0.1rem solid navy;
+  min-width: 20rem;
+  min-height: 20rem;
+  max-width: 100rem;
+  max-height: 100rem;
+  width: 80vw;
+  height: 80vw;
 }
 
 #apple {
-    display: none;
-    width: 10px;
-    height: 10px;
+  display: none;
+  width: 1rem;
+  height: 1rem;
 }
 
 #orange {
-    display: none;
-    width: 10px;
-    height: 10px;
+  display: none;
+  width: 1rem;
+  height: 1rem;
 }
 
 #watermelon {
-    display: none;
-    width: 10px;
-    height: 10px;
+  display: none;
+  width: 1rem;
+  height: 1rem;
 }
 
 #pineapple {
-    display: none;
-    width: 10px;
-    height: 10px;
+  display: none;
+  width: 1rem;
+  height: 1rem;
 }
 
 #bomb {
-    display: none;
-    width: 10px;
-    height: 10px;
+  display: none;
+  width: 1rem;
+  height: 1rem;
 }
 
 #basket {
-    display: none;
-    width: 10px;
-    height: 10px;
+  display: none;
+  width: 1rem;
+  height: 1rem;
 }
 
 #pause-icon {
-    display: none;
-    width: 10px;
-    height: 10px;
+  display: none;
+  width: 1rem;
+  height: 1rem;
 }
 
 .title-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
-    min-width: fit-content;
-    width: 500px;
-    display: flex;
-    justify-content: center;
-    padding: 25px;
-    color: navy;
-    background-color: rgb(253, 245, 230, .5);
-    border-radius: 15px;
-    margin-bottom: 25px;
+  min-width: fit-content;
+  width: 25rem;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem;
+  color: navy;
+  background-color: rgb(253, 245, 230, 0.5);
+  border-radius: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .close-button {
-    font-size: 24px;
+  font-size: 2.5rem;
 }
 
 .close-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .controls {
-    z-index: 2;
-    min-width: 120px;
-    min-height: 120px;
-    width: 80vw;
-    height: 75vh;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    border-radius: 15px;
-    background-color: rgba(97, 97, 216);
-    color: white;
-    padding: 15px;
+  z-index: 2;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+  width: 80vw;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  border-radius: 2rem;
+  background-color: rgba(97, 97, 216);
+  color: white;
+  padding: 1rem;
 }
 
 .controls-message {
-    width: 80vw;
-    height: 75vh;
-    margin-top: 15px;
-    font-size: 24px;
+  width: 80vw;
+  height: 75vh;
+  margin-top: 1rem;
+  font-size: 1.5rem;
 }
 
 ul {
-    font-size: 20px;
+  font-size: 1.2rem;
 }
 li {
-    font-size: 16px;
-    padding: 8px;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: [first] 18% [second] 18% [third] 18% [fourth] 18%;
+  gap: 7%;
 }
 
 .start-button {
-    z-index: 1;
-    margin-right: 25px;
-    padding: 16px;
-    background-color: green;
-    color: white;
-    border: 0;
-    border-radius: 5px;
+  z-index: 1;
+  padding: 1rem;
+  background-color: green;
+  color: white;
+  border: 0;
+  border-radius: 0.25rem;
 }
 .pause-button {
-    z-index: 1;
-    background-color: blue;
-    padding: 16px;
-    color: white;
-    border: 0;
-    border-radius: 5px;
+  z-index: 1;
+  background-color: blue;
+  padding: 1rem;
+  color: white;
+  border: 0;
+  border-radius: 0.25rem;
 }
 .reset-button {
-    z-index: 1;
-    margin-left: 25px;
-    background-color: red;
-    padding: 16px;
-    color: white;
-    border: 0;
-    border-radius: 5px;
+  z-index: 1;
+  background-color: red;
+  padding: 1rem;
+  color: white;
+  border: 0;
+  border-radius: 0.25rem;
 }
 
 .info-button {
-    z-index: 1;
-    margin-left: 25px;
-    background-color: grey;
-    color: white;
-    padding: 16px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: 0;
-    border-radius: 50%;
+  padding: 1rem;
+  z-index: 1;
+  background-color: grey;
+  color: white;
+  border: 0;
+  border-radius: 0.25rem;
 }
 
 .start-button:hover {
-    margin-right: 25px;
-    padding: 16px;
-    background-color: darkgreen;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 1rem;
+  background-color: darkgreen;
+  color: white;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 .pause-button:hover {
-    background-color: darkblue;
-    padding: 16px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: darkblue;
+  padding: 1rem;
+  color: white;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 .reset-button:hover {
-    margin-left: 25px;
-    background-color: darkred;
-    padding: 16px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: darkred;
+  padding: 1rem;
+  color: white;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
-
 
 .info-button:hover {
-    margin-left: 25px;
-    background-color: dimgrey;
-    color: white;
-    padding: 16px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: 0;
-    border-radius: 50%;
-    cursor: pointer;
+  background-color: dimgrey;
+  color: white;
+  padding: 1rem;
+  border: 0;
+  cursor: pointer;
 }
 
-.score {
-    float: left;
-    width: 33%;
+.scoreboard {
+  display: grid;
+  grid-template-columns: [first] 33% [second] 33% [third] 33%;
 }
 
 #butterfly {
-    display: none;
-    width: 5vw;
-    height: 5vh;
-    position: absolute;
-    right: 5%;
+  display: none;
+  width: 5vw;
+  height: 5vh;
+  position: absolute;
+  right: 5%;
 }
 
 #butterfly2 {
-    display: none;
-    width: 4vw;
-    height: 4vh;
-    position: absolute;
-    left: 5%;
-    top: 40%;
+  display: none;
+  width: 4vw;
+  height: 4vh;
+  position: absolute;
+  left: 5%;
+  top: 40%;
 }
 #butterfly3 {
-    display: none;
-    width: 3vw;
-    height: 3vh;
-    position: absolute;
-    right: 30%;
-    top: 60%;
+  display: none;
+  width: 3vw;
+  height: 3vh;
+  position: absolute;
+  right: 30%;
+  top: 60%;
 }
 #butterfly4 {
-    display: none;
-    width: 6vw;
-    height: 6vh;
-    position: absolute;
-    left: 85%;
-    top: 10%;
+  display: none;
+  width: 6vw;
+  height: 6vh;
+  position: absolute;
+  left: 85%;
+  top: 10%;
 }
 #butterfly5 {
-    display: none;
-    width: 5vw;
-    height: 5vh;
-    position: absolute;
-    right: 5%;
-    top: 70%;
+  display: none;
+  width: 5vw;
+  height: 5vh;
+  position: absolute;
+  right: 5%;
+  top: 70%;
 }
 
 #bird {
-    display: none;
-    height: 17.5vw;
-    width: 20vh;
-    position: absolute;
-    top: 5%;
+  display: none;
+  height: 17.5vw;
+  width: 20vh;
+  position: absolute;
+  top: 5%;
 }
 
 #squirrel {
-    z-index: -1;
-    display: none;
-    height: 8vh;
-    position: absolute;
-    bottom: 10%;
-    left: 5%;
+  z-index: -1;
+  display: none;
+  height: 8vh;
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
 }
 
 .arrow-buttons {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .left-arrow-button {
-    margin-top: 20px;
-    margin-right: 25px;
-    background-color: grey;
-    color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 250px;
-    height: 50px;
+  margin-top: 20px;
+  margin-right: 25px;
+  background-color: grey;
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
 }
 
 .left-arrow-button:hover {
-    margin-top: 20px;
-    margin-right: 25px;
-    background-color: darkgrey;
-    border: 1px solid white;
-    border-radius: 5px;
-    width: 250px;
-    height: 50px;
-    cursor: pointer;
+  margin-top: 20px;
+  margin-right: 25px;
+  background-color: darkgrey;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+  cursor: pointer;
 }
 
 .right-arrow-button {
-    margin-top: 20px;
-    margin-left: 25px;
-    background-color: grey;
-    color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 250px;
-    height: 50px;
+  margin-top: 20px;
+  margin-left: 25px;
+  background-color: grey;
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
 }
 
 .right-arrow-button:hover {
-    margin-top: 20px;
-    margin-left: 25px;
-    background-color: darkgrey;
-    border: 1px solid white;
-    border-radius: 5px;
-    width: 250px;
-    height: 50px;
-    cursor: pointer;
+  margin-top: 20px;
+  margin-left: 25px;
+  background-color: darkgrey;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 250px;
+  height: 50px;
+  cursor: pointer;
 }
 
 #left-arrow {
-    width: 80px;
-    height: 40px;
+  width: 80px;
+  height: 40px;
 }
 
 #right-arrow {
-    width: 80px;
-    height: 40px;
+  width: 80px;
+  height: 40px;
 }
 
 #oneUp {
-    display: none;
-    width: 10px;
-    height: 10px;
+  display: none;
+  width: 1rem;
+  height: 1rem;
 }
 
 #slowFruit {
-    display: none;
-    width: 10px;
-    height: 10px;
+  display: none;
+  width: 1rem;
+  height: 1rem;
 }
 
 #dashPlayer {
-    display: none;
-    width: 10px;
-    height: 10px;
+  display: none;
+  width: 1rem;
+  height: 1rem;
 }
