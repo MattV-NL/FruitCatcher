@@ -18,7 +18,9 @@
       <h1 class="title">Fruit Catcher Game</h1>
     </div>
     <div class="controls" id="controls">
-      <span class="close-button" id="close-button">&times;</span>
+      <div class="close-button-container">
+        <span class="close-button" id="close-button">&times;</span>
+      </div>
       <div class="controls-message">
         <p>Welcome to my version of a Fruit Catcher Game!! Have fun!</p>
         <ul>
@@ -39,39 +41,47 @@
         </ul>
       </div>
     </div>
-    <div class="buttons-container">
-      <div class="buttons">
-        <button class="start-button" id="start-button">START</button>
-        <button class="pause-button" id="pause-button">PAUSE</button>
-        <button class="reset-button" id="reset-button">RESET</button>
-        <button class="info-button" id="info-button">HELP</button>
+    <div class="body-container">
+      <div class="buttons-container">
+        <div class="buttons">
+          <button class="start-button" id="start-button">START</button>
+          <button class="pause-button" id="pause-button">PAUSE</button>
+          <button class="reset-button" id="reset-button">RESET</button>
+          <button class="info-button" id="info-button">HELP</button>
+        </div>
       </div>
-    </div>
-    <div class="scoreboard">
-      <div class="score" id="score">
-        <h2>SCORE:<span class="score-display" id="score-display">0</span></h2>
+      <div class="scoreboard-container">
+        <div class="scoreboard">
+          <div class="score" id="score">
+            <h2>
+              SCORE:<span class="score-display" id="score-display">0</span>
+            </h2>
+          </div>
+          <div class="score">
+            <h2>
+              LIVES:<span class="lives-display" id="lives-display">3</span>
+            </h2>
+          </div>
+          <div class="score">
+            <h2>
+              TIME:<span id="timer-display-min">00</span><span>:</span
+              ><span id="timer-display-sec">00</span><span>:</span
+              ><span id="timer-display-milisec">00</span>
+            </h2>
+          </div>
+        </div>
       </div>
-      <div class="score">
-        <h2>LIVES:<span class="lives display" id="lives-display">3</span></h2>
+      <div class="playarea">
+        <canvas id="canvas" width="10" height="10"></canvas>
       </div>
-      <div class="score">
-        <h2>
-          TIME:<span id="timer-display-min">00</span><span>:</span
-          ><span id="timer-display-sec">00</span><span>:</span
-          ><span id="timer-display-milisec">00</span>
-        </h2>
+      <div class="arrow-buttons">
+        <button class="left-arrow-button" id="left-arrow-button">
+          <img src="images/arrow-left.png" alt="" id="left-arrow" />
+        </button>
+        <button class="right-arrow-button" id="right-arrow-button">
+          <img src="images/arrow-right.png" alt="" id="right-arrow" />
+        </button>
       </div>
-    </div>
-    <div class="playarea">
-      <canvas id="canvas" width="600" height="600"></canvas>
-    </div>
-    <div class="arrow-buttons">
-      <button class="left-arrow-button" id="left-arrow-button">
-        <img src="images/arrow-left.png" alt="" id="left-arrow" />
-      </button>
-      <button class="right-arrow-button" id="right-arrow-button">
-        <img src="images/arrow-right.png" alt="" id="right-arrow" />
-      </button>
     </div>
   </body>
 
