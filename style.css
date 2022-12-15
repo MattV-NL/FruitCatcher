@@ -208,40 +208,40 @@ li {
 
 #butterfly {
   display: none;
-  width: 5vw;
-  height: 5vh;
+  width: 3rem;
+  height: 3rem;
   position: absolute;
   right: 5%;
 }
 
 #butterfly2 {
   display: none;
-  width: 4vw;
-  height: 4vh;
+  width: 3rem;
+  height: 3rem;
   position: absolute;
   left: 5%;
   top: 40%;
 }
 #butterfly3 {
   display: none;
-  width: 3vw;
-  height: 3vh;
+  width: 4rem;
+  height: 4rem;
   position: absolute;
   right: 30%;
   top: 60%;
 }
 #butterfly4 {
   display: none;
-  width: 6vw;
-  height: 6vh;
+  width: 3rem;
+  height: 3rem;
   position: absolute;
   left: 85%;
   top: 10%;
 }
 #butterfly5 {
   display: none;
-  width: 5vw;
-  height: 5vh;
+  width: 4rem;
+  height: 4rem;
   position: absolute;
   right: 5%;
   top: 70%;
@@ -249,8 +249,8 @@ li {
 
 #bird {
   display: none;
-  height: 17.5vw;
-  width: 20vh;
+  height: 18rem;
+  width: 18rem;
   position: absolute;
   top: 5%;
 }
@@ -258,7 +258,7 @@ li {
 #squirrel {
   z-index: -1;
   display: none;
-  height: 8vh;
+  height: 5rem;
   position: absolute;
   bottom: 10%;
   left: 5%;
