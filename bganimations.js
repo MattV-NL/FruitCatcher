@@ -10,69 +10,76 @@ animationTimer = null;
 removeAnimation = null;
 
 function drawButterfly() {
-    animationTimer = setInterval(() => {
-        butterfly.style.display = 'flex';
-    }, 8000);
-    animationTimer = setInterval(() => {
-        butterfly2.style.display = 'flex';
-    }, 5000);
-    animationTimer = setInterval(() => {
-        butterfly3.style.display = 'flex';
-    }, 12000);
-    animationTimer = setInterval(() => {
-        butterfly4.style.display = 'flex';
-    }, 15000);
-    animationTimer = setInterval(() => {
-        butterfly5.style.display = 'flex';
-    }, 18000);
+  animationTimer = setInterval(() => {
+    butterfly.style.display = 'flex';
+  }, 8000);
+  animationTimer = setInterval(() => {
+    butterfly2.style.display = 'flex';
+  }, 5000);
+  animationTimer = setInterval(() => {
+    butterfly3.style.display = 'flex';
+  }, 12000);
+  animationTimer = setInterval(() => {
+    butterfly4.style.display = 'flex';
+  }, 15000);
+  animationTimer = setInterval(() => {
+    butterfly5.style.display = 'flex';
+  }, 18000);
 }
 
 function removeButterfly() {
-    removeAnimation = setInterval(() => {
-        butterfly.style.display = 'none';
-    }, 11000);
-    removeAnimation = setInterval(() => {
-        butterfly2.style.display = 'none';
-    }, 8000);
-    removeAnimation = setInterval(() => {
-        butterfly3.style.display = 'none';
-    }, 15000);
-    removeAnimation = setInterval(() => {
-        butterfly4.style.display = 'none';
-    }, 18000);
-    removeAnimation = setInterval(() => {
-        butterfly5.style.display = 'none';
-    }, 21000);
-
+  removeAnimation = setInterval(() => {
+    butterfly.style.display = 'none';
+  }, 11000);
+  removeAnimation = setInterval(() => {
+    butterfly2.style.display = 'none';
+  }, 8000);
+  removeAnimation = setInterval(() => {
+    butterfly3.style.display = 'none';
+  }, 15000);
+  removeAnimation = setInterval(() => {
+    butterfly4.style.display = 'none';
+  }, 18000);
+  removeAnimation = setInterval(() => {
+    butterfly5.style.display = 'none';
+  }, 21000);
 }
 
 function drawBird() {
-    animationTimer = setInterval(() => {
-        bird.style.display = 'flex';
-    }, 15000);
+  animationTimer = setInterval(() => {
+    bird.style.display = 'flex';
+  }, 15000);
 }
 
 function removeBird() {
-    removeAnimation = setInterval(() => {
-        bird.style.display = 'none';
-    }, 17500);
+  removeAnimation = setInterval(() => {
+    bird.style.display = 'none';
+  }, 17500);
 }
 
 function drawSquirrel() {
-    animationTimer = setInterval(() => {
-        squirrel.style.display = 'flex';
-    }, 17000);
+  animationTimer = setInterval(() => {
+    squirrel.style.display = 'flex';
+  }, 17000);
 }
 
 function removeSquirrel() {
-    removeAnimation = setInterval(() => {
-        squirrel.style.display = 'none';
-    }, 24000);
+  removeAnimation = setInterval(() => {
+    squirrel.style.display = 'none';
+  }, 24000);
 }
 
-drawButterfly();
-drawBird();
-drawSquirrel();
-removeButterfly();
-removeBird();
-removeSquirrel();
+function checkingForMobile() {
+  if (window.innerWidth < 500) {
+    return;
+  } else {
+    drawButterfly();
+    drawBird();
+    drawSquirrel();
+    removeButterfly();
+    removeBird();
+    removeSquirrel();
+  }
+}
+
+checkingForMobile();
