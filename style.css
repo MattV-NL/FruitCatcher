@@ -8,6 +8,35 @@ body {
   background-position: center center;
 }
 
+.footer {
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-message {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#github {
+  height: 2.25rem;
+  width: 2.25rem;
+}
+
+#linkedIn {
+  height: 1.9rem;
+  width: 1.9rem;
+}
+
 #canvas {
   z-index: -2;
   border-radius: 1rem;
