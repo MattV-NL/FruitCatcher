@@ -11,3 +11,4 @@ The motivation for this project was to come up with an idea for a game that is a
 
 ## Deployment
 The game is deployed with GitHub Pages and you can find it here https://mattv-nl.github.io/FruitCatcher/
+
